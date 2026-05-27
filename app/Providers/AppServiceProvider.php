@@ -4,12 +4,15 @@ namespace App\Providers;
 
 use App\Services\GlobalSettingsService;
 use Awcodes\Curator\Models\Media;
+use Filament\Support\Assets\Js;
+use Filament\Support\Facades\FilamentAsset;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 use Intervention\Image\Laravel\Facades\Image;
+use Symfony\Component\HtmlSanitizer\HtmlSanitizerConfig;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -20,7 +23,7 @@ class AppServiceProvider extends ServiceProvider
 
     public function register(): void
     {
-        //
+ 
     }
 
     /**
@@ -28,6 +31,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+ 
         Media::creating(function ($media) {
 
             if (static::$isProcessing)

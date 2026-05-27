@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('title');
             $table->string('slug')->unique();
             $table->string('preview')->nullable();
-            $table->string('excerpt')->nullable();
+            $table->text('excerpt')->nullable();
             $table->json('content_blocks')->nullable();
             $table->string('sort_order')->default(1);
             $table->boolean('publish')->default(false);

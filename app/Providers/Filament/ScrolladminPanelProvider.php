@@ -8,7 +8,10 @@ use Awcodes\Curator\Models\Media;
 use Filament\Http\Middleware\Authenticate;
 use BezhanSalleh\FilamentShield\FilamentShieldPlugin;
 use Filament\Actions\Action;
+use Filament\Forms\Components\Builder\Block;
 use Filament\Forms\Components\RichEditor;
+ 
+use Filament\Forms\Components\RichEditor\ToolbarButtonGroup;
 use Filament\Http\Middleware\AuthenticateSession;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
@@ -16,6 +19,7 @@ use Filament\Navigation\NavigationGroup;
 use Filament\Pages\Dashboard;
 use Filament\Panel;
 use Filament\PanelProvider;
+use Filament\Schemas\Components\Utilities\Set;
 use Filament\Support\Colors\Color;
 use Filament\View\PanelsRenderHook;
 use Filament\Widgets\AccountWidget;
@@ -27,22 +31,35 @@ use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
-
+use Tiptap\Nodes\Paragraph;
 
 class ScrolladminPanelProvider extends PanelProvider
 {
+
+ 
+ 
+
     public function panel(Panel $panel): Panel
     {
         RichEditor::configureUsing(function (RichEditor $editor) {
+ 
+
+              
 
         $editor->toolbarButtons([
-                                ['bold', 'italic', 'underline', 'strike', 'subscript', 'superscript', 'link'],
-                                ['h1','h2', 'h3', 'alignStart', 'alignCenter', 'alignEnd'],
-                                ['blockquote', 'codeBlock', 'bulletList', 'orderedList'],
+                                ['clearFormatting'],
+                                [ToolbarButtonGroup::make('Форматирование',['bold', 'italic', 'underline', 'strike', 'subscript', 'superscript', 'link'])->icon('heroicon-o-pencil-square') ],
+                                [ToolbarButtonGroup::make('Текст', ['h1','h2', 'h3','h4','h5','paragraph','small'])->icon('fi-o-heading')],
+                                [ToolbarButtonGroup::make('Alignment', ['alignStart', 'alignCenter', 'alignEnd', 'alignJustify'])->icon('heroicon-o-bars-3-bottom-left')],
+                                 
+                                ['textColor'  ], 
+                                ['codeBlock', 'bulletList', 'orderedList'],
                                 ['table', 'attachFiles'], 
-                                ['undo', 'redo', 'code'],
+                                ['undo', 'redo', 'source-code'],
                             ]);
-                 $editor->hintAction(
+                 $editor->customTextColors();
+ 
+                 $editor->hintAction( 
                                 Action::make('openCurator')
                                     ->label('Выбрать из медиатеки')
                                     ->icon('heroicon-m-photo')
@@ -65,9 +82,9 @@ class ScrolladminPanelProvider extends PanelProvider
                                             );
                                         }
                                     })
-                            );
+                           );
         });
-
+ 
         return $panel
             ->default()
             ->id('scrolladmin')
@@ -87,6 +104,7 @@ class ScrolladminPanelProvider extends PanelProvider
                 AccountWidget::class,
             ])
 
+ 
             ->middleware([
                 EncryptCookies::class,
                 AddQueuedCookiesToResponse::class,

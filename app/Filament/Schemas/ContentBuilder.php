@@ -14,6 +14,7 @@ use App\Filament\Blocks\CharacterMainBlock;
 use App\Filament\Blocks\DocumentBlock;
 use App\Filament\Blocks\MainBrandBlock;
 use App\Filament\Blocks\MainDirectionsBlock;
+use App\Filament\Blocks\MainNewsBlock;
 use App\Filament\Blocks\MainTextBlock;
 use App\Filament\Blocks\PartnersBlock;
  
@@ -44,6 +45,9 @@ class ContentBuilder
 
                 MainBrandBlock::make()
                     ->visible($template === 'brands'),
+                    
+                MainNewsBlock::make()
+                    ->visible($template === 'news'),
 
                 MainDirectionsBlock::make()
                     ->visible($template === 'directions'),

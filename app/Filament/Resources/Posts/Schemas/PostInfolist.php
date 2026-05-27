@@ -17,10 +17,7 @@ class PostInfolist
                 TextEntry::make('sort_order')->label('сортировка'),
                 IconEntry::make('publish')->label('Опубликовано')
                     ->boolean(),
-                TextEntry::make('tags.name') // Обращаемся через точку: связь.поле
-                    ->label('Тэги')
-                    ->listWithLineBreaks()   // Каждый тег с новой строки (опционально)
-                    ->bulleted(),            // Добавить маркеры списка (опционально)
+ 
                 TextEntry::make('created_at')->label('Дата создания')
                     ->dateTime()
                     ->placeholder('-'),

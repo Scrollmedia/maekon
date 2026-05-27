@@ -4,8 +4,67 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7e1ec76047958e3590f25df3d55757bc",
+    "content-hash": "8b3c5247f2c27d04db123c942b6bf26b",
     "packages": [
+        {
+            "name": "amidesfahani/filament-tinyeditor",
+            "version": "v5.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/amidesfahani/filament-tinyeditor.git",
+                "reference": "4ea24b3e928aecd7dfa39f005b72f43671f0e1c7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/amidesfahani/filament-tinyeditor/zipball/4ea24b3e928aecd7dfa39f005b72f43671f0e1c7",
+                "reference": "4ea24b3e928aecd7dfa39f005b72f43671f0e1c7",
+                "shasum": ""
+            },
+            "require": {
+                "filament/filament": "^5.0",
+                "php": "^8.2",
+                "spatie/laravel-package-tools": "^1.92.7",
+                "tinymce/tinymce": "^8.0"
+            },
+            "require-dev": {
+                "laravel/pint": "^1.24"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "AmidEsfahani\\FilamentTinyEditor\\TinyeditorServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "AmidEsfahani\\FilamentTinyEditor\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Amid Esfahani",
+                    "email": "amid.esfahani@gmail.com"
+                }
+            ],
+            "description": "Filament TinyMce Editor",
+            "keywords": [
+                "filament",
+                "laravel",
+                "tinyeditor",
+                "tinymce"
+            ],
+            "support": {
+                "issues": "https://github.com/amidesfahani/filament-tinyeditor/issues",
+                "source": "https://github.com/amidesfahani/filament-tinyeditor/tree/v5.0.0"
+            },
+            "time": "2026-05-22T00:48:35+00:00"
+        },
         {
             "name": "archtechx/enums",
             "version": "v1.1.2",
@@ -1050,6 +1109,84 @@
                 }
             ],
             "time": "2025-08-20T19:15:30+00:00"
+        },
+        {
+            "name": "curder/filament-rich-editor-source-code",
+            "version": "v0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/curder/filament-rich-editor-source-code.git",
+                "reference": "ddb1c0dd3d56f885923356cd1dfdb2d5da41b5a2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/curder/filament-rich-editor-source-code/zipball/ddb1c0dd3d56f885923356cd1dfdb2d5da41b5a2",
+                "reference": "ddb1c0dd3d56f885923356cd1dfdb2d5da41b5a2",
+                "shasum": ""
+            },
+            "require": {
+                "filament/filament": "^4.0|^5.0",
+                "illuminate/contracts": "^11.0||^12.0",
+                "php": "^8.2",
+                "spatie/laravel-package-tools": "^1.16"
+            },
+            "require-dev": {
+                "larastan/larastan": "^3.0",
+                "laravel/pint": "^1.14",
+                "nunomaduro/collision": "^8.8",
+                "orchestra/testbench": "^10.0.0||^9.0.0",
+                "pestphp/pest": "^3.0|^4.0",
+                "pestphp/pest-plugin-arch": "^3.0|^4.0",
+                "pestphp/pest-plugin-laravel": "^3.0|^4.0",
+                "phpstan/extension-installer": "^1.4",
+                "phpstan/phpstan-deprecation-rules": "^2.0",
+                "phpstan/phpstan-phpunit": "^2.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "aliases": {
+                        "FilamentRichEditorSourceCode": "Curder\\FilamentRichEditorSourceCode\\Facades\\FilamentRichEditorSourceCode"
+                    },
+                    "providers": [
+                        "Curder\\FilamentRichEditorSourceCode\\FilamentRichEditorSourceCodeServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Curder\\FilamentRichEditorSourceCode\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "curder",
+                    "email": "q.curder@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Allow Filament 4.x or 5.x View and edit the source code of the rich text editor in the form of a modal.",
+            "homepage": "https://github.com/curder/filament-rich-editor-source-code",
+            "keywords": [
+                "curder",
+                "filament-rich-editor-source-code",
+                "laravel"
+            ],
+            "support": {
+                "issues": "https://github.com/curder/filament-rich-editor-source-code/issues",
+                "source": "https://github.com/curder/filament-rich-editor-source-code/tree/v0.1.0"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/curder",
+                    "type": "github"
+                }
+            ],
+            "time": "2026-01-31T14:05:32+00:00"
         },
         {
             "name": "danharrin/date-format-converter",
@@ -10486,6 +10623,65 @@
                 "source": "https://github.com/tijsverkoyen/CssToInlineStyles/tree/v2.4.0"
             },
             "time": "2025-12-02T11:56:42+00:00"
+        },
+        {
+            "name": "tinymce/tinymce",
+            "version": "8.5.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/tinymce/tinymce-dist.git",
+                "reference": "265989e814097c17f3196d33244a778c4925e80b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/tinymce/tinymce-dist/zipball/265989e814097c17f3196d33244a778c4925e80b",
+                "reference": "265989e814097c17f3196d33244a778c4925e80b",
+                "shasum": ""
+            },
+            "type": "component",
+            "extra": {
+                "component": {
+                    "files": [
+                        "tinymce.min.js",
+                        "plugins/*/plugin.min.js",
+                        "themes/*/theme.min.js",
+                        "models/*/model.min.js",
+                        "skins/**",
+                        "icons/*/icons.min.js"
+                    ],
+                    "scripts": [
+                        "tinymce.js",
+                        "plugins/*/plugin.js",
+                        "themes/*/theme.js",
+                        "models/*/model.js",
+                        "icons/*/icons.js"
+                    ]
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "SEE LICENSE IN license.md"
+            ],
+            "description": "Web based JavaScript HTML WYSIWYG editor control.",
+            "homepage": "https://www.tiny.cloud/",
+            "keywords": [
+                "contenteditable",
+                "editing",
+                "html",
+                "javascript",
+                "rich editor",
+                "rich text",
+                "rich text editor",
+                "richtext",
+                "rte",
+                "text",
+                "tinymce",
+                "wysiwyg"
+            ],
+            "support": {
+                "source": "https://github.com/tinymce/tinymce-dist/tree/8.5.1"
+            },
+            "time": "2026-05-19T23:39:20+00:00"
         },
         {
             "name": "ueberdosis/tiptap-php",

@@ -2,8 +2,11 @@
 
 namespace App\Filament\Schemas;
 
+use AmidEsfahani\FilamentTinyEditor\TinyEditor;
 use Awcodes\Curator\Components\Forms\CuratorPicker;
+use Filament\Actions\Action;
 use Filament\Forms\Components\Builder;
+use Filament\Forms\Components\CodeEditor;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\RichEditor;
@@ -12,6 +15,8 @@ use Filament\Forms\Components\Textarea;
 use Filament\Schemas\Components\Component;
 use Filament\Schemas\Components\Grid;
 use Filament\Schemas\Components\Section;
+use Filament\Schemas\Components\Tabs;
+use Filament\Schemas\Components\Utilities\Set;
 
 class  PostContent
 {
@@ -20,10 +25,12 @@ class  PostContent
         return [
             Section::make('Доп информация')
                 ->schema([
-                    Textarea::make('excerpt')
+                    TinyEditor::make('excerpt')
                         ->label('Краткое описание')
-                        ->visible($hasExcerpt2)                         
-                        ->columnSpanFull(),
+                        ->visible($hasExcerpt2)                      
+                        ->columnSpanFull()
+                       
+                      ,
                     CuratorPicker::make('preview')
                         ->label('Превью')
                         ->buttonLabel('Из медиатеки')

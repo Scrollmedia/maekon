@@ -27,6 +27,7 @@ class  PageService
             'brand_main' => $foundTypes->contains('brand_main') ? GetOtherPagesService::getAllBrands() : collect(),
             'brand' => $foundTypes->contains('brand') ? GetOtherPagesService::getHomeBrands() : collect(),
             'news' => $foundTypes->contains('news') ? GetOtherPagesService::getHomeNews() : collect(),
+            'news_main' => $foundTypes->contains('news_main') ? GetOtherPagesService::getAllNews() : collect(),
             'direction' => $foundTypes->contains('direction') ? GetOtherPagesService::getHomeDirections() : collect(),
             'direction_main' => $foundTypes->contains('direction_main') ? GetOtherPagesService::getAllDirections() : collect(),
 

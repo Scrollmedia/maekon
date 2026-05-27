@@ -36,11 +36,18 @@ class  GetOtherPagesService
 
     public static function getHomeNews() {
         return Post::where('publish', true)
-            ->select(['id', 'title',   'preview', 'created_at'])
+            ->select(['id', 'title', 'excerpt',  'preview', 'created_at'])
             ->with(['urlRegistry' => function ($query) {
                 $query->select(['slug', 'model_id', 'model_type']);
             }])
             ->limit(6)->get();
+    }
+    public static function getAllNews() {
+        return Post::where('publish', true)
+            ->select(['id', 'title', 'excerpt',  'preview', 'created_at'])
+            ->with(['urlRegistry' => function ($query) {
+                $query->select(['slug', 'model_id', 'model_type']);
+            }])->get();
     }
 
     public static function getHomeDirections() {

@@ -27,6 +27,7 @@ trait EnrichesContentBlocks
                 'brand' => fn($items) => $this->itemsMap($items, $mediaMap),
                 'brand_main' => fn($items) => $this->itemsMap($items, $mediaMap),
                 'news'  => fn($items) => $this->itemsMap($items, $mediaMap),
+                'news_main'  => fn($items) => $this->itemsMap($items, $mediaMap),
                 'direction' => fn($items) => $this->itemsMap($items, $mediaMap),
                 'direction_main' => fn($items) => $this->itemsMap($items, $mediaMap),
             ];
@@ -55,6 +56,7 @@ trait EnrichesContentBlocks
                             'url' => $mediaMap[$p->preview]->url,
                             'alt' => $mediaMap[$p->preview]->alt,
                         ] : null,
+                        'created_at' => $p->created_at ?? ''
                     ]);
     }
     /**

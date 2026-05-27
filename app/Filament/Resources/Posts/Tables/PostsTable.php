@@ -36,9 +36,7 @@ class PostsTable
                 IconColumn::make('publish')->label('Публикация')
                     ->boolean(),
 
-                TextColumn::make('tags.name')
-                    ->label('Тэги')
-                    ->badge(),
+ 
                 TextColumn::make('created_at')->label('Дата создания')
                     ->dateTime()
                     ->sortable()
@@ -48,9 +46,7 @@ class PostsTable
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
-            ->filters([
-                SelectFilter::make('tags')->label('Тэги')->relationship('tags', 'name')->native(false)
-            ])
+ 
             ->recordActions([
                 ViewAction::make(),
                 EditAction::make(),

@@ -21,6 +21,7 @@ class BreadcrumbsService {
         return match (true) {
             $model instanceof Direction => $this->forDirection($model, $crumbs),
             $model instanceof Brand => $this->forBrand($model, $crumbs),
+            $model instanceof Post => $this->forPosts($model, $crumbs),
             $model instanceof Page    => $this->forPage($model, $crumbs),
             default   => $this->forPage($model, $crumbs)
         };
@@ -43,6 +44,19 @@ class BreadcrumbsService {
         private function forBrand(object $model,array $crumbs)
     {
         $main = $this->getMainPageByTemplate('brands');
+
+        if ($main) $crumbs[] = $this->makeCrumb($main);
+ 
+        if ($model->category) {
+            $crumbs = array_merge($crumbs, $this->getAncestors($model->category));
+        }
+ 
+        $crumbs[] = $this->makeLastCrumb($model);
+        return $crumbs;
+    }
+    private function forPosts(object $model,array $crumbs)
+    {
+        $main = $this->getMainPageByTemplate('news');
 
         if ($main) $crumbs[] = $this->makeCrumb($main);
  

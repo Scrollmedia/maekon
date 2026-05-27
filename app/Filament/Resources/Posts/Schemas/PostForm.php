@@ -29,21 +29,8 @@ class PostForm
                             Tab::make('Основной контент')
                                 ->schema([
                                     ...MainContent::getSchema(),
-                                    ...PostContent::getSchema(true, false),
-
-                                    Select::make('tags')
-                                    ->label('Тэги')
-                                    ->relationship('tags', 'name')
-                                    ->searchable()
-                                    ->multiple()
-                                    ->preload()
-                                    ->required()
-                                    ->createOptionForm([         
-                                        TextInput::make('name')
-                                            ->label('название')
-                                            ->required()
-                                            ->unique('tag_posts', 'name'),
-                                    ]),
+                                    ...PostContent::getSchema(true, true),
+ 
                                 ]),
 
                             Tab::make('Конструктор')

@@ -3,12 +3,13 @@
 }
 
 .specs-info__container {
-    @apply py-25 px-(--container-offset-sm);
-    @apply max-3xl:py-20;
-    @apply max-xl:pb-[--spacing(70/4)];
-    @apply max-lg:pb-[--spacing(60/4)];
-    @apply max-md:pt-[--spacing(60/4)] max-md:pb-[--spacing(50/4)];
+    @apply my-25 px-(--container-offset-sm);
+    @apply max-3xl:my-20;
+    @apply max-xl:mb-[--spacing(70/4)];
+    @apply max-lg:mb-[--spacing(60/4)];
+    @apply max-md:mt-[--spacing(60/4)] max-md:mb-[--spacing(50/4)];
 }
+
 
 .specs-info__list {
     @apply flex flex-col gap-25;

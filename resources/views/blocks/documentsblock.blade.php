@@ -1,4 +1,4 @@
-          <div class="specs-info__block">
+          <div class="specs-info__block specs-info__container container mx-auto">
             <div class="section-header section-header--with-description">
               <h4 class="section-title">{!! $metaItem['title'] !!} </h4>
               <div class="section-description" data-line-reveal> {!! $metaItem['pod_title'] !!} </div>

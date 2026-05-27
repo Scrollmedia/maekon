@@ -18,7 +18,7 @@
                   <img class="direction-card__bg" src="{{ $item['preview']['url'] }}" alt="{{ $item['title'] }}">
                   <div class="direction-card__content">
                     <h4 class="direction-card__title">{{ $item['title'] }}</h4>
-                    <p class="direction-card__description" data-line-reveal>{{ $item['excerpt'] }}</p>
+                    <div class="direction-card__description" data-line-reveal>{!! $item['excerpt'] !!}</div>
                   </div>
                 </a>
               </div>

@@ -1,7 +1,10 @@
 <?php
 
 namespace App\Models;
+
+use App\Handlers\PostsHandler;
 use App\Interfaces\BreadcrumbsInterface;
+use App\Interfaces\HasBlocksInterface;
 use App\Traits\HasBreadcrumbs;
 use App\Traits\HasRegistryRoute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -10,7 +13,7 @@ use Illuminate\Support\Facades\Cache;
 use LaravelLang\Models\HasTranslations;
 
 
-class Post extends Model implements BreadcrumbsInterface
+class Post extends Model implements BreadcrumbsInterface, HasBlocksInterface
 {
     use HasFactory, HasRegistryRoute, HasBreadcrumbs;
     protected $guarded = [];
@@ -32,12 +35,27 @@ class Post extends Model implements BreadcrumbsInterface
     
         protected function getHandlerClass(): string
     {
-        return  PageHandler::class;
+        return  PostsHandler::class;
     }
 
-    protected function generateFullSlug(): string
+    protected function generateFullSlug(): string 
     {
-        return  $this->slug;
+
+
+        $mainPage = once(fn() => Page::where('template', 'news')->first());
+        $prefix = $mainPage ? $mainPage->slug : 'blog';
+
+        return $prefix . '/' . $this->slug;
+    }
+
+        public function getContentBlocks(): array
+    {
+        return $this->content_blocks ?? [];
+    }
+    public function urlRegistry()
+    {
+        return $this->morphOne(UrlRegistry::class, 'model');
+        
     }
 
 }
