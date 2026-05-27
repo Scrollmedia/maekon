@@ -1,0 +1,147 @@
+{% set headerNavItems = [
+    { href: '#', label: 'О компании' },
+    { href: '#', label: 'Направления' },
+    { href: '#', label: 'Бренды' },
+    { href: '#', label: 'Сертификаты' },
+    { href: '#', label: 'Новости' },
+    { href: '#', label: 'Вакансии' },
+    { href: '#', label: 'Контакты' }
+] %}
+
+<header class="header">
+    <div class="container mx-auto">
+        <div class="header__body">
+            <div class="header__content">
+                <div class="header__logo">
+                    {% include "shared/logo.njk" %}
+                </div>
+
+                <div class="header__right">
+                    <div
+                        id="header-menu-panel"
+                        class="header__menu-panel"
+                        aria-label="Меню">
+                        <nav class="header__menu" aria-label="Основное меню">
+                            <ul class="header__menu-list">
+                                {% for item in headerNavItems %}
+                                    <li class="header__menu-item{% if loop.first %} active{% endif %}">
+                                        <a
+                                            href="{{ item.href }}"
+                                            class="header__menu-link">
+                                            <span
+                                                class="header__menu-link-track"
+                                                data-label="{{ item.label }}">
+                                                <span class="header__menu-link-text">{{ item.label }}</span>
+                                            </span>
+                                        </a>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </nav>
+                    </div>
+
+                    <div class="lang-switcher">
+                        <a
+                            href="?lang=ru"
+                            class="lang-switcher__current"
+                            data-lang-current>
+                            RU
+                        </a>
+                        <div class="lang-switcher__dropdown">
+                            <a
+                                href="?lang=ru"
+                                class="lang-switcher__option"
+                                data-lang-option="ru">
+                                RU
+                            </a>
+                            <a
+                                href="?lang=en"
+                                class="lang-switcher__option"
+                                data-lang-option="en">
+                                EN
+                            </a>
+                            <a
+                                href="?lang=by"
+                                class="lang-switcher__option"
+                                data-lang-option="by">
+                                BY
+                            </a>
+                        </div>
+                    </div>
+
+                    <button
+                        type="button"
+                        class="theme-switcher">
+                        <div class="theme-switcher__marker">
+                            <svg
+                                class="theme-switcher__icon theme-switcher__icon--sun"
+                                aria-hidden="true">
+                                <use href="/assets/icons/sprite.svg?v={{ version }}#sun"></use>
+                            </svg>
+                            <svg
+                                class="theme-switcher__icon theme-switcher__icon--moon"
+                                aria-hidden="true">
+                                <use href="/assets/icons/sprite.svg?v={{ version }}#moon"></use>
+                            </svg>
+                        </div>
+                        <span class="theme-switcher__text theme-switcher__text--night">ночь</span>
+                        <span class="theme-switcher__text theme-switcher__text--sun">день</span>
+                    </button>
+
+                    <button
+                        type="button"
+                        class="burger-btn"
+                        aria-expanded="false"
+                        aria-controls="header-menu-panel"
+                        aria-label="Меню">
+                        <svg
+                            class="burger-btn__icon"
+                            viewBox="0 0 21 21"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <circle
+                                cx="1.5"
+                                cy="1.5"
+                                r="1.5" />
+                            <circle
+                                class="burger-btn__icon-hidding"
+                                cx="10.5"
+                                cy="1.5"
+                                r="1.5" />
+                            <circle
+                                cx="19.5"
+                                cy="1.5"
+                                r="1.5" />
+                            <circle
+                                class="burger-btn__icon-hidding"
+                                cx="1.5"
+                                cy="10.5"
+                                r="1.5" />
+                            <circle
+                                cx="10.5"
+                                cy="10.5"
+                                r="1.5" />
+                            <circle
+                                class="burger-btn__icon-hidding"
+                                cx="19.5"
+                                cy="10.5"
+                                r="1.5" />
+                            <circle
+                                cx="1.5"
+                                cy="19.5"
+                                r="1.5" />
+                            <circle
+                                class="burger-btn__icon-hidding"
+                                cx="10.5"
+                                cy="19.5"
+                                r="1.5" />
+                            <circle
+                                cx="19.5"
+                                cy="19.5"
+                                r="1.5" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>

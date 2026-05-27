@@ -1,0 +1,19 @@
+{% from "section/partner.njk" import partnerSection %}
+
+{% extends "layout/default.njk" %}
+
+{% block content %}
+    {% include "widgets/header.njk" %}
+
+    <main>
+        {% include "section/hero.njk" %}
+        {% include "section/direction.njk" %}
+        {% include "section/about.njk" %}
+        {% include "section/quality.njk" %}
+        {% include "section/brand.njk" %}
+        {{ partnerSection() }}
+        {% include "section/article.njk" %}
+    </main>
+
+    {% include "widgets/footer.njk" %}
+{% endblock %}

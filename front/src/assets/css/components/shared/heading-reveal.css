@@ -1,0 +1,7 @@
+.heading-reveal__word {
+    @apply inline-block overflow-hidden align-bottom leading-inherit;
+}
+
+.heading-reveal__word-inner {
+    @apply inline-block will-change-transform leading-inherit;
+}

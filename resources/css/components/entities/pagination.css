@@ -1,0 +1,47 @@
+.pagination {
+    @apply self-start flex items-center justify-center gap-25 p-7.5 bg-card rounded-card-sm;
+    @apply max-3xl:gap-21.5;
+    @apply max-xl:gap-15 max-xl:p-5;
+    @apply max-md:gap-9.5 max-md:p-4 max-md:w-full;
+}
+
+.pagination__list {
+    @apply flex items-center justify-center gap-2.5;
+}
+
+.pagination__item {
+    @apply cursor-pointer flex items-center justify-center p-2 min-w-12.5 h-12.5 text-xl font-medium leading-none bg-black-adaptive-10% hover:bg-black-adaptive-20% active:bg-black-adaptive-30% rounded-card-sm transition-colors;
+    @apply max-xl:min-w-10 max-xl:h-10 max-xl:text-base max-xl:rounded-card-xs;
+    @apply max-md:min-w-8 max-md:h-8 max-md:text-sm;
+}
+
+.pagination__item.active {
+    @apply cursor-default text-white bg-accent-500;
+}
+
+.pagination__item--dots {
+    @apply cursor-default pointer-events-none;
+}
+
+.pagination__actions {
+    @apply flex items-center gap-5;
+    @apply max-md:gap-4;
+}
+
+.pagination__actions-btn {
+    @apply cursor-pointer flex items-center justify-center size-12.5 bg-black-adaptive-10% hover:bg-accent-500 active:bg-accent-600 hover:scale-116 rounded-full transition-all;
+    @apply max-xl:size-10;
+}
+
+.pagination__actions-btn-icon {
+    @apply w-2.5 transition-all fill-ctnt-1;
+    @apply max-xl:w-2;
+}
+
+.pagination__actions-btn:hover .pagination__actions-btn-icon {
+    @apply fill-white-adaptive-100%;
+}
+
+[class*='next'] > .pagination__actions-btn-icon {
+    @apply -scale-x-100;
+}

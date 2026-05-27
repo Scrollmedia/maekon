@@ -1,0 +1,26 @@
+{% from "section/hero-static.njk" import heroStatic %}
+{% from "entities/card/text.njk" import textCard %}
+
+{% extends "layout/default.njk" %}
+
+{% block content %}
+    {% include "widgets/header.njk" %}
+
+    <main>
+        {{ heroStatic(
+            image='/assets/images/bg/direction.webp',
+            title='оборудование для термообработки',
+            breadcrumbsItems=[
+                { title: 'Главная', url: '#' },
+                { title: 'Направления', url: '#' },
+                { title: 'Оборудование для термообработки', url: '#' }
+            ]
+        ) }}
+
+        {% include "section/text-slider.njk" %}
+        {% include "section/slider-info.njk" %}
+        {% include "section/specs-info.njk" %}
+    </main>
+
+    {% include "widgets/footer.njk" %}
+{% endblock %}

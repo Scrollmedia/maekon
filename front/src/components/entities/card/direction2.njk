@@ -1,0 +1,32 @@
+{% from "shared/button.njk" import button %}
+
+{% macro direction2Card(image='/assets/images/directions/1.webp', imageSide='left', title='Оборудование для&nbsp;термообработки', description='Универсальное промышленное оборудование периодического действия, предназначенное для термической обработки (закалки, отжига, нормализации) материалов, где нагрев осуществляется в закрытой камере.', descriptionSmall='') %}
+<div class="direction2-card" data-card-reveal-item>
+    {% if imageSide == 'left' %}
+        <div class="direction2-card__image-wrapper">
+            <img class="direction2-card__image" src="{{ image }}" alt="{{ title }}">
+        </div>
+    {% endif %}
+
+    <div class="direction2-card__content">
+        <div class="direction2-card__content-inner">
+            <h4 class="direction2-card__title">{{ title }}</h4>
+            <div class="direction2-card__description-wrapper">
+                <p class="direction2-card__description" data-line-reveal>{{ description }}</p>
+
+                {% if descriptionSmall %}
+                    <p class="direction2-card__description-small" data-line-reveal>{{ descriptionSmall }}</p>
+                {% endif %}
+            </div>
+        </div>
+
+        {{ button(label="подробнее", severity="secondary", className="direction2-card__btn") }}
+    </div>
+
+    {% if imageSide == 'right' %}
+        <div class="direction2-card__image-wrapper">
+            <img class="direction2-card__image" src="{{ image }}" alt="{{ title }}">
+        </div>
+    {% endif %}
+</div>
+{% endmacro %}

@@ -1,0 +1,32 @@
+{% from "section/hero-static.njk" import heroStatic %}
+{% from "entities/card/direction2.njk" import direction2Card %}
+
+{% extends "layout/default.njk" %}
+
+{% block content %}
+    {% include "widgets/header.njk" %}
+
+    <main>
+        {{ heroStatic(
+            image='/assets/images/bg/default.webp',
+            title='Направления',
+            breadcrumbsItems=[
+                { title: 'Главная', url: '#' },
+                { title: 'Направления', url: '#' }
+            ]
+        ) }}
+
+        <section>
+            <div class="container mx-auto">
+                <div class="section-list" data-card-reveal-group>
+                    {{ direction2Card(descriptionSmall='Ключевые особенности включают равномерное распределение температуры, трехсторонний обогрев, высокоэффективную изоляцию и использование микропроцессорных контроллеров для точного управления процессом.') }}
+                    {{ direction2Card(image='/assets/images/directions/2.webp', imageSide='right') }}
+                    {{ direction2Card() }}
+                    {{ direction2Card(image='/assets/images/directions/2.webp', imageSide='right') }}
+                </div>
+            </div>
+        </section>
+    </main>
+
+    {% include "widgets/footer.njk" %}
+{% endblock %}

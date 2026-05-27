@@ -1,0 +1,46 @@
+.article-page {
+    @apply pt-12.5 pb-25;
+    @apply max-3xl:pb-[--spacing(80/4)];
+    @apply max-xl:pb-[--spacing(70/4)];
+    @apply max-md:pt-7.5 max-md:pb-[--spacing(50/4)];
+}
+
+.article-page__container {
+    @apply flex flex-col gap-12.5 px-(--container-offset-sm);
+    @apply max-lg:gap-10;
+    @apply max-md:gap-4;
+
+    & .pagination {
+        @apply max-md:mt-[--spacing(24/4)];
+    }
+}
+
+.article-page__list {
+    @apply grid grid-cols-2 gap-5;
+    @apply max-lg:gap-4;
+    @apply max-md:grid-cols-1;
+}
+
+.article-page .article-card:not(.article-card--row) .article-card__content {
+    @apply pb-6;
+}
+
+.article-page .article-card:not(.article-card--row) .article-card__image-wrapper {
+    @apply aspect-796/351;
+    @apply max-3xl:aspect-556/300;
+    @apply max-xl:aspect-412/240;
+    @apply max-lg:aspect-auto max-lg:h-[--spacing(240/4)];
+}
+
+.article-page .article-card--row .article-card__title {
+    @apply text-[length:--spacing(36/4)];
+    @apply max-3xl:text-[length:--spacing(24/4)];
+    @apply max-md:text-[length:--spacing(18/4)];
+}
+
+.article-page .article-card__title {
+    @apply text-[length:--spacing(32/4)];
+    @apply max-3xl:text-[length:--spacing(24/4)];
+    @apply max-xl:text-[length:--spacing(20/4)];
+    @apply max-md:text-[length:--spacing(18/4)];
+}

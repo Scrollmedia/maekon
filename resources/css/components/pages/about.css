@@ -1,0 +1,13 @@
+.about-page__address-container {
+    @apply py-12.5;
+    @apply max-xl:pb-10;
+    @apply max-md:py-7.5;
+}
+
+.about-page__partner {
+    @apply pt-25 pb-12.5;
+    @apply max-3xl:pt-20 max-3xl:pb-10;
+    @apply max-xl:pt-15 max-md:pb-7.5;
+    @apply max-lg:pt-20 max-lg:pb-10;
+    @apply max-md:pt-15 max-md:pb-7.5;
+}

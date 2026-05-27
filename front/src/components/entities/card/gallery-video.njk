@@ -1,0 +1,20 @@
+{% macro galleryVideoCard(videoId='j3mf6-nG6F4') %}
+<div class="gallery-video-card">
+    <div class="gallery-video-card__media">
+        <iframe
+            class="gallery-video-card__video"
+            src="https://www.youtube.com/embed/{{ videoId }}?si=NwUrjBQ95uCaq0DH"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen></iframe>
+        <div class="gallery-video-card__edge gallery-video-card__edge--left" aria-hidden="true"></div>
+        <div class="gallery-video-card__edge gallery-video-card__edge--right" aria-hidden="true"></div>
+    </div>
+
+    <div class="gallery-video-card__content">
+        <h6 class="gallery-video-card__title">Как правильно монтировать печи сериии 2134</h6>
+    </div>
+</div>
+{% endmacro %}

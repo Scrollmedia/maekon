@@ -1,0 +1,15 @@
+.partner-card {
+    @apply flex items-center justify-center p-5 w-full h-62.5 bg-card rounded-card;
+    @apply max-3xl:h-[--spacing(180/4)];
+    @apply max-xl:h-[--spacing(140/4)];
+    @apply max-lg:h-[--spacing(120/4)];
+    @apply max-md:rounded-xl;
+
+    & > * {
+        @apply max-w-full max-h-full object-contain transition-all;
+    }
+
+    &:hover > * {
+        @apply scale-126;
+    }
+}

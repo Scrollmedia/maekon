@@ -1,0 +1,12 @@
+{% macro sliderCenterCard(title='Печь камерного типа', description='Печи электрические сопротивления камерного типа', image='/assets/images/bg/direction.webp') %}
+<div class="slider-center-card" data-card-reveal-item>
+    <img
+        class="slider-center-card__bg"
+        src="{{ image }}"
+        alt="Печь камерного типа" />
+    <div class="slider-center-card__content">
+        <h5 class="slider-center-card__title">{{ title }}</h5>
+        <p class="slider-center-card__description" data-line-reveal>{{ description }}</p>
+    </div>
+</div>
+{% endmacro %}

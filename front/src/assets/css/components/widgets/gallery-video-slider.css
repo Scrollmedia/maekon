@@ -1,0 +1,11 @@
+.gallery-video-slider {
+    @apply w-full;
+    @apply max-3xl:overflow-initial;
+}
+
+.gallery-video-slider .swiper-slide {
+    @apply max-3xl:w-[--spacing(460/4)];
+    @apply max-xl:w-[--spacing(340/4)];
+    @apply max-lg:w-[--spacing(336/4)];
+    @apply max-md:w-auto;
+}

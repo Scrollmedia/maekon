@@ -1,0 +1,179 @@
+.footer {
+    --width-first-col: 515px;
+
+    @apply mt-auto bg-card rounded-t-card overflow-hidden;
+    @apply max-3xl:[--width-first-col:355px];
+}
+
+.footer__container {
+    @apply flex flex-col gap-7.5 pt-[71px] pb-[52px];
+    @apply max-xl:gap-5 max-xl:pt-[51px] max-xl:pb-[48px];
+    @apply max-lg:gap-10 max-lg:pb-[41px];
+    @apply max-md:gap-7.5 max-md:pt-7.5 max-md:pb-8;
+}
+
+.footer__top {
+    @apply flex items-start;
+    @apply max-lg:flex-col max-lg:items-stretch max-lg:gap-7.5;
+}
+
+.footer__logo {
+    @apply flex w-(--width-first-col) h-[53px];
+    @apply max-md:w-40 max-md:h-[43px];
+
+    & > * {
+        @apply h-full;
+    }
+}
+
+.footer__top-right {
+    @apply grow flex items-start justify-between gap-7.5;
+}
+
+.footer__contacts {
+    @apply flex items-start gap-x-19 gap-y-5;
+    @apply max-3xl:gap-x-15;
+    @apply max-xl:flex-col;
+}
+
+.footer__address {
+    @apply w-full max-w-[325px] leading-normal;
+}
+
+.footer__contacts-list {
+    @apply flex items-center gap-x-[49px] gap-y-5;
+    @apply max-3xl:flex-col;
+}
+
+.footer__contacts-link {
+    @apply text-2xl max-3xl:text-xl font-bold hover:text-accent-500 transition-colors;
+}
+
+.footer__social {
+    @apply w-[331px];
+    @apply max-3xl:w-[238px];
+    @apply max-md:hidden;
+}
+
+.footer__social-title {
+    @apply mb-7.5 text-2xl font-bold;
+    @apply max-3xl:mb-5 max-3xl:text-xl;
+}
+
+.footer__social-links {
+    @apply flex items-center gap-7.5;
+}
+
+.footer__social-link {
+    @apply flex items-center justify-center w-[45px] h-[45px] bg-black-adaptive-10% hover:bg-black-adaptive-20% hover:scale-118 rounded-full transition-all;
+}
+
+.footer__social-icon {
+    @apply size-8 transition-all fill-ctnt-1;
+}
+
+.footer__social-link:hover .footer__social-icon {
+    @apply fill-accent-500;
+}
+
+/* Nav */
+.footer__nav {
+    @apply pl-(--width-first-col);
+    @apply max-xl:mt-5 max-xl:pl-0;
+    @apply max-lg:mt-0;
+}
+
+.footer__nav-list {
+    @apply flex items-center flex-wrap gap-7.5;
+    @apply max-md:gap-2.5;
+}
+
+.footer__nav-item {
+    @apply list-none;
+}
+
+.footer__nav-link {
+    @apply relative z-0 inline-flex items-center overflow-hidden text-xl font-bold transition-colors hover:text-accent-500;
+    @apply max-3xl:text-base;
+    @apply max-md:text-sm;
+
+    &::after {
+        content: attr(data-label);
+        @apply pointer-events-none absolute inset-0 z-0 flex items-center justify-start translate-y-full;
+        @apply transition-transform duration-450 ease-out;
+    }
+
+    &:hover,
+    &:focus-visible {
+        &::after {
+            @apply translate-y-0;
+        }
+
+        & .footer__nav-link-text {
+            @apply -translate-y-full;
+        }
+    }
+}
+
+.footer__nav-link-text {
+    @apply relative z-1 flex items-center justify-start translate-y-0 transition-transform ease-out;
+}
+
+/* Bottom */
+.footer__bottom {
+    @apply flex items-end gap-x-5;
+}
+
+.footer__bottom-left {
+    @apply flex items-start;
+    @apply max-lg:flex-col-reverse max-lg:gap-y-5;
+    @apply max-md:gap-y-9;
+}
+
+.footer__copyright {
+    @apply w-(--width-first-col) text-sm;
+    @apply max-3xl:mr-38.5;
+    @apply max-xl:mr-10 max-xl:w-auto;
+}
+
+.footer__bottom-links {
+    @apply flex items-start gap-x-7.5 gap-y-3;
+    @apply max-md:flex-col max-md:-mr-25;
+}
+
+.footer__bottom-link {
+    @apply relative inline-block font-medium text-ctnt-1 transition-colors;
+
+    &::after {
+        content: '';
+        @apply pointer-events-none absolute right-0 bottom-0 left-0 h-px origin-left bg-accent-500 transition-all duration-200;
+    }
+
+    &:hover {
+        @apply text-accent-500;
+    }
+
+    &:hover::after {
+        @apply scale-x-0 opacity-0;
+    }
+}
+
+.footer__developer {
+    @apply ml-auto p-1.5 bg-black-adaptive-7% hover:bg-black-adaptive-10% rounded-card-xs transition-all;
+
+    & svg {
+        @apply w-23 h-11.5 fill-accent-500 transition-all;
+    
+        & .dev-logo-icon {
+            @apply transition-all origin-[12.76px_32.76px];
+        }
+    }
+
+    &:hover svg {
+        @apply fill-[#EB1212];
+    }
+
+    &:hover .dev-logo-icon {
+        @apply rotate-90;
+    }
+}

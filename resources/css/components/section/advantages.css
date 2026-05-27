@@ -1,0 +1,71 @@
+.advantages__container {
+    @apply pt-12.5 px-(--container-offset-sm) pb-25;
+    @apply max-3xl:pb-20;
+    @apply max-xl:pt-10 max-xl:pb-12.5;
+    @apply max-lg:pb-15;
+    @apply max-md:pt-7.5;
+}
+
+.advantages__header {
+    @apply flex flex-col gap-7.5 mb-23.75 max-w-[--spacing(1057/4)];
+    @apply max-3xl:max-w-[--spacing(939/4)];
+    @apply max-xl:mb-20;
+}
+
+.advantages__header-title {
+    @apply heading text-h4;
+    @apply max-3xl:text-5xl;
+    @apply max-xl:text-[length:--spacing(40/4)];
+    @apply max-md:text-[length:--spacing(32/4)];
+}
+
+.advantages__header-description {
+    @apply text-2xl font-medium;
+    @apply max-xl:text-[length:--spacing(20/4)];
+    @apply max-md:text-[length:--spacing(16/4)];
+}
+
+.advantages__block-title {
+    @apply heading mb-12.5 text-h3;
+    @apply max-xl:mb-10 max-xl:text-[length:--spacing(64/4)];
+    @apply max-lg:text-[length:--spacing(48/4)];
+    @apply max-md:mb-6;
+}
+
+.advantages__grid {
+    @apply grid grid-cols-2 gap-5;
+    @apply max-md:grid-cols-1 max-md:gap-4;
+}
+
+.advantages__item {
+    @apply flex flex-col items-start gap-2.5 p-12.5 pr-17 min-h-110 bg-card rounded-card;
+    @apply max-xl:p-10 max-xl:min-h-[--spacing(340/4)];
+    @apply max-lg:p-7.5 max-lg:min-h-[--spacing(300/4)];
+    @apply max-md:p-5 max-md:rounded-2xl;
+}
+
+.advantages__item-title {
+    @apply heading mb-auto text-h4;
+    @apply max-xl:text-[length:--spacing(40/4)];
+    @apply max-lg:text-[length:--spacing(36/4)];
+    @apply max-md:text-[length:--spacing(32/4)];
+}
+
+.advantages__item-title--lg {
+    @apply text-h3;
+    @apply max-xl:text-[length:--spacing(64/4)];
+}
+
+.advantages__item-description {
+    @apply text-xl font-semibold text-ctnt-1/80;
+    @apply max-lg:text-[length:--spacing(16/4)];
+}
+
+.advantages__item-btn {
+    @apply hover:bg-black-adaptive-10%;
+    @apply max-md:w-full max-md:justify-start;
+
+    &:hover .btn__icon {
+        @apply fill-white bg-accent-500;
+    }
+}

@@ -1,0 +1,44 @@
+{% from "shared/button.njk" import button %}
+{% from "entities/digit-roll.njk" import digitRoll %}
+
+<section class="about">
+    <div class="container mx-auto">
+        <div class="about__grid" data-card-reveal-group>
+            <div class="about__item" data-card-reveal-item data-card-reveal-delay="0.1">
+                <h4 class="about__item-title">РЕЗидент МГТ</h4>
+                <p class="about__item-description" data-line-reveal>Среди производителей оборудования для термообработки</p>
+            </div>
+            <div class="about__item" data-card-reveal-item data-card-reveal-delay="0.2">
+                <h4 class="about__item-title about__item-title--small">
+                    член ассоциации технопарков беларуси
+                </h4>
+                <p class="about__item-description" data-line-reveal>Среди производителей оборудования для термообработки</p>
+            </div>
+            <div class="about__item" data-card-reveal-item data-card-reveal-delay="0.3">
+                <h4 class="about__item-title">{{ digitRoll('520', prefix='>') }}</h4>
+                <p class="about__item-description" data-line-reveal>
+                    Более 520 клиентов и 25 стрран - география реализации продукции
+                </p>
+            </div>
+            <div class="about__item" data-card-reveal-item data-card-reveal-delay="0.4">
+                <h4 class="about__item-title">{{ digitRoll('25') }}</h4>
+                <p class="about__item-description" data-line-reveal>Среди производителей оборудования для термообработки</p>
+            </div>
+            <div class="about__item-main" data-card-reveal-item>
+                <img
+                    class="about__item-main-bg"
+                    src="/assets/images/bg/about.webp"
+                    alt="About bg" />
+                <div class="about__item-main-content">
+                    <h3 class="about__item-main-title">О компании</h3>
+                    <p class="about__item-main-description" data-line-reveal>
+                        Конпания "МАЕКОН" занимается проектированием и производством технологического оборудования с
+                        2016 года.
+                    </p>
+
+                    {{ button(href="#", label='подробнее', severity='secondary', className='about__item-main-btn') }}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

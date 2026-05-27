@@ -1,0 +1,21 @@
+{% from "shared/button.njk" import button %}
+
+<section class="vacancies-info" data-card-reveal-group>
+    <div class="vacancies-info__container container mx-auto">
+        <div class="vacancies-info__card" data-card-reveal-item>
+
+            <picture>
+                <source media="(max-width: 768px)" srcset="/assets/images/bg/vacancies-info--mobile.webp" type="image/jpg">
+                <img src="/assets/images/bg/vacancies-info.webp" alt="Vacancies Info" class="vacancies-info__card-bg" width="500" height="375">
+            </picture>
+
+            <div class="vacancies-info__card-content">
+                <h4 class="vacancies-info__card-title">
+                    вакансии
+                </h4>
+                <p class="vacancies-info__card-description" data-line-reveal>Конпания "МАЕКОН" занимается проектированием и производством технологического оборудования с 2016 года. </p>
+                {{ button(label="подробнее", severity="secondary", className="vacancies-info__card-btn") }}
+            </div>
+        </div>
+    </div>
+</section>

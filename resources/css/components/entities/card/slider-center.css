@@ -1,0 +1,32 @@
+.slider-center-card {
+    @apply relative z-1 flex items-end justify-start p-5 min-h-[--spacing(800/4)] rounded-card overflow-hidden;
+    @apply max-3xl:min-h-[--spacing(600/4)];
+    @apply max-xl:min-h-[--spacing(500/4)];
+    @apply max-md:p-2.5 max-md:rounded-2xl;
+}
+
+.slider-center-card__bg {
+    @apply absolute top-0 left-0 -z-1 w-full h-full object-cover;
+}
+
+.slider-center-card__content {
+    @apply p-12.5 w-[--spacing(681/4)] max-w-full bg-white-adaptive-30% backdrop-blur-2xl rounded-card-sm transition-all duration-600;
+    @apply max-lg:p-7.5;
+    @apply max-md:p-5;
+
+    .swiper-slide:not(.swiper-slide-active) & {
+        @apply opacity-0;
+    }
+}
+
+.slider-center-card__title {
+    @apply font-sans text-h5 font-bold leading-none;
+    @apply max-lg:text-[length:--spacing(32/4)];
+    @apply max-md:text-[length:--spacing(20/4)];
+}
+
+.slider-center-card__description {
+    @apply mt-7.5 text-xl font-bold;
+    @apply max-lg:mt-5 max-lg:text-[length:--spacing(16/4)];
+    @apply max-md:text-[length:--spacing(14/4)];
+}

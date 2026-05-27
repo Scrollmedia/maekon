@@ -1,0 +1,60 @@
+.hero {
+    @apply relative bg-card;
+}
+
+/* Slider */
+.hero__slider {
+    @apply h-(--hero-height) rounded-b-card overflow-hidden;
+    @apply max-md:rounded-b-2xl;
+}
+
+/* Actions */
+.hero__slider-actions {
+    @apply absolute bottom-19 left-1/2 -translate-x-1/2 z-1 flex items-center justify-center px-(--container-offset-sm);
+    @apply max-3xl:bottom-16.5;
+    @apply max-xl:justify-start;
+    @apply max-md:bottom-14.25;
+}
+
+.hero__slider-actions .slider-btn-list {
+    @apply absolute top-1/2 -translate-y-1/2 right-(--container-offset-sm);
+}
+
+.hero__slider-prev,
+.hero__slider-next {
+    @apply bg-white-adaptive-60% backdrop-blur-[30px];
+}
+
+.hero__slider-pagination {
+    @apply relative max-w-[--spacing(436/4)] overflow-hidden;
+    @apply max-xl:max-w-[--spacing(356/4)];
+    @apply max-lg:max-w-[--spacing(276/4)];
+    @apply max-md:max-w-[--spacing(165/4)];
+}
+
+.hero__slider-pagination-track {
+    @apply flex w-max items-center gap-3 transition-transform duration-450 ease-out will-change-transform;
+    @apply max-md:gap-2.5;
+}
+
+.hero__slider-pagination--overflow {
+    mask-image: linear-gradient(90deg, transparent 0, #000 12px, #000 calc(100% - 20px), transparent 100%);
+    -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 12px, #000 calc(100% - 20px), transparent 100%);
+}
+
+.hero__slider-pagination-item {
+    --progress: 0%;
+    @apply shrink-0 cursor-pointer flex justify-end w-25 h-2 rounded-full bg-black-adaptive-20%;
+    @apply before:content-[''] before:block before:w-(--progress) before:h-full before:rounded-full;
+    @apply max-xl:w-20 max-xl:h-1.5;
+    @apply max-lg:w-15;
+    @apply max-md:w-5;
+}
+
+.hero__slider-pagination-item:not(.active) {
+    @apply before:hidden;
+}
+
+.hero__slider-pagination-item.active {
+    @apply bg-black-adaptive-20% before:block before:bg-accent-500;
+}

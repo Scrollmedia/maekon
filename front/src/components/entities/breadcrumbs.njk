@@ -1,0 +1,11 @@
+{% macro breadcrumbs(items) %}
+    <ul class="breadcrumbs">
+        {% for item in items %}
+            {% if not loop.last %}
+                <a class="breadcrumbs__item" href="{{ item.url }}">{{ item.title }}</a>
+            {% else %}
+                <span class="breadcrumbs__item">{{ item.title }}</span>
+            {% endif %}
+        {% endfor %}
+    </ul>
+{% endmacro %}

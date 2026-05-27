@@ -1,0 +1,7 @@
+{% macro sliderCounter(className='') %}
+    <div class="slider-counter{% if className %} {{ className }}{% endif %}">
+        <span class="slider-counter__current">1</span>
+        <span class="slider-counter__divider">/ </span>
+        <span class="slider-counter__total">4</span>
+    </div>
+{% endmacro %}

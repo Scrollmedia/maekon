@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ title | default("Design system") }}</title>
+
+  <link rel="stylesheet" href="/assets/css/common.css">
+</head>
+<body>
+    {% set version = "1.0.0" %} 
+    {% block content %}{% endblock %}
+
+    <script type="module" src="/assets/js/main.js"></script>
+</body>
+</html>

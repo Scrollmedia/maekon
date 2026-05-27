@@ -1,0 +1,21 @@
+.digit-roll {
+    @apply inline-flex flex-nowrap items-end gap-0;
+    font-variant-numeric: tabular-nums;
+}
+
+.digit-roll__prefix,
+.digit-roll__suffix {
+    @apply shrink-0 leading-none;
+}
+
+.digit-roll__prefix {
+    margin-inline-end: 0.12em;
+}
+
+.digit-roll__suffix {
+    margin-inline-start: 0.08em;
+}
+
+.digit-roll__value {
+    @apply leading-none;
+}

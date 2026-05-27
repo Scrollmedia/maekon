@@ -1,0 +1,39 @@
+{% from "shared/button.njk" import button %}
+{% from "entities/slider-btn-list.njk" import sliderBtnList %}
+{% from "entities/slider-counter.njk" import sliderCounter %}
+{% from "entities/card/partner.njk" import partnerCard %}
+
+{% macro partnerSection(className='') %}
+<section class="partner{% if className %} {{ className }}{% endif %}">
+    <div class="partner__container container mx-auto">
+        <div class="section-header partner__header">
+            <h3 class="section-title">партнеры</h3>
+
+            <div class="section-header__actions">
+                {{ button(href="#", label="все партнеры", severity="secondary", className="section-header__btn-all") }}
+
+                {{ sliderBtnList(prevClass='partner__slider-prev', nextClass='partner__slider-next') }}
+            </div>
+
+            {{ sliderCounter(className='partner__slider-counter') }}
+        </div>
+
+        <div class="swiper partner__slider" data-card-reveal-group>
+            <div class="swiper-wrapper">
+                <div class="swiper-slide" data-card-reveal-item>{{ partnerCard() }}</div>
+                <div class="swiper-slide" data-card-reveal-item data-card-reveal-delay="0.1">{{ partnerCard(image='/assets/images/partners/2.webp', title='Партнер 2') }}</div>
+                <div class="swiper-slide" data-card-reveal-item data-card-reveal-delay="0.2">{{ partnerCard(image='/assets/images/partners/3.webp', title='Партнер 3') }}</div>
+                <div class="swiper-slide" data-card-reveal-item data-card-reveal-delay="0.3">{{ partnerCard(image='/assets/images/partners/4.webp', title='Партнер 4') }}</div>
+                <div class="swiper-slide" data-card-reveal-item data-card-reveal-delay="0.4">{{ partnerCard() }}</div>
+                <div class="swiper-slide" data-card-reveal-item data-card-reveal-delay="0.5">{{ partnerCard(image='/assets/images/partners/2.webp', title='Партнер 2') }}</div>
+                <div class="swiper-slide" data-card-reveal-item data-card-reveal-delay="0.6">{{ partnerCard(image='/assets/images/partners/3.webp', title='Партнер 3') }}</div>
+                <div class="swiper-slide" data-card-reveal-item data-card-reveal-delay="0.7">{{ partnerCard(image='/assets/images/partners/4.webp', title='Партнер 4') }}</div>
+            </div>
+        </div>
+
+        <div class="section-header__btn-all-wrapper">
+            {{ button(href="#", label="все партнеры", severity="secondary", className="section-header__btn-all") }}
+        </div>
+    </div>
+</section>
+{% endmacro %}

@@ -1,0 +1,28 @@
+.specs-info {
+    @apply overflow-hidden;
+}
+
+.specs-info__container {
+    @apply py-25 px-(--container-offset-sm);
+    @apply max-3xl:py-20;
+    @apply max-xl:pb-[--spacing(70/4)];
+    @apply max-lg:pb-[--spacing(60/4)];
+    @apply max-md:pt-[--spacing(60/4)] max-md:pb-[--spacing(50/4)];
+}
+
+.specs-info__list {
+    @apply flex flex-col gap-25;
+    @apply max-3xl:gap-20;
+    @apply max-md:gap-15;
+}
+
+.specs-info__block {
+    @apply flex flex-col gap-17.5;
+    @apply max-3xl:gap-12.5;
+    @apply max-lg:gap-10;
+    @apply max-md:gap-7.5;
+}
+
+.specs-info__video {
+    @apply mx-auto w-full max-w-[1337px] aspect-video rounded-card;
+}

@@ -1,0 +1,11 @@
+{% macro directionCard(image='/assets/images/bg/direction.webp', title='Оборудование для&nbsp;термообработки', description='Конпания "МАЕКОН" занимается проектированием и производством технологического оборудования с 2016 года.') %}
+
+<a href="#" class="direction-card" data-card-reveal-item>
+    <img class="direction-card__bg" src="{{ image }}" alt="{{ title }}">
+
+    <div class="direction-card__content">
+        <h4 class="direction-card__title">{{ title }}</h4>
+        <p class="direction-card__description" data-line-reveal>{{ description }}</p>
+    </div>
+</a>
+{% endmacro %}

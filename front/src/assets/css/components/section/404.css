@@ -1,0 +1,31 @@
+.section-404 {
+    @apply relative z-1;
+}
+
+.section-404__container {
+    @apply flex flex-col items-start justify-center pt-[--spacing(180/4)] px-(--container-offset-sm) pb-[--spacing(92/4)] min-h-screen;
+    @apply max-3xl:pt-[--spacing(160/4)] max-3xl:pb-[--spacing(80/4)];
+    @apply max-xl:pt-[--spacing(140/4)];
+    @apply max-md:pt-[--spacing(110/4)] max-md:pb-[--spacing(60/4)];
+}
+
+.section-404__bg {
+    @apply absolute top-0 left-0 -z-1 w-full h-full object-cover;
+}
+
+.section-404__title {
+    @apply text-[length:--spacing(256/4)];
+    @apply max-3xl:text-[length:--spacing(128/4)];
+    @apply max-md:text-[length:--spacing(64/4)];
+}
+
+.section-404__description {
+    @apply mt-1 text-2xl font-semibold;
+    @apply max-xl:text-xl;
+    @apply max-md:mt-2.75 max-md:text-base;
+}
+
+.section-404__btn {
+    @apply mt-12.5;
+    @apply max-md:mt-7.5 max-lg:min-h-15 max-lg:px-7.5;
+}

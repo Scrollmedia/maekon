@@ -1,0 +1,45 @@
+.gallery-video-card {
+    @apply flex flex-col gap-2.5;
+
+    &:hover .gallery-video-card__title {
+        @apply text-accent-500;
+    }
+}
+
+.gallery-video-card__media {
+    @apply relative aspect-video w-full overflow-hidden rounded-2xl;
+    @apply max-xl:rounded-xl;
+}
+
+.gallery-video-card__video {
+    @apply absolute inset-0 z-0 h-full w-full border-0;
+    @apply rounded-2xl max-xl:rounded-xl;
+}
+
+.gallery-video-card__edge {
+    @apply absolute top-0 bottom-0 z-1 select-none;
+    width: min(20%, 4.5rem);
+    touch-action: pan-y;
+}
+
+.gallery-video-card__edge--left {
+    @apply left-0;
+}
+
+.gallery-video-card__edge--right {
+    @apply right-0;
+}
+
+.gallery-video-card__content {
+    @apply py-10 px-7.5 bg-card rounded-2xl;
+    @apply max-3xl:py-7.5 max-3xl:px-6.25;
+    @apply max-xl:p-7.5 max-xl:rounded-xl;
+    @apply max-lg:px-5;
+    @apply max-md:p-5;
+}
+
+.gallery-video-card__title {
+    @apply font-sans text-h6 font-medium leading-[1.2] transition-colors;
+    @apply max-xl:text-[length:--spacing(20/4)];
+    @apply max-md:text-[length:--spacing(16/4)];
+}

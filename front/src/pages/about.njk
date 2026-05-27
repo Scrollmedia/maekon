@@ -1,0 +1,34 @@
+{% from "section/hero-static.njk" import heroStatic %}
+{% from "entities/card/slider-center.njk" import sliderCenterCard %}
+{% from "section/partner.njk" import partnerSection %}
+
+{% extends "layout/default.njk" %}
+
+{% block content %}
+    {% include "widgets/header.njk" %}
+
+    <main>
+        {{ heroStatic(
+            image='/assets/images/bg/about-page.webp',
+            title='о компании',
+            breadcrumbsItems=[
+                { title: 'Главная', url: '#' },
+                { title: 'О компании', url: '#' }
+            ]
+        ) }}
+
+
+        <section class="about-page__address" data-card-reveal-group>
+            <div class="about-page__address-container container mx-auto">
+                {{ sliderCenterCard(title='Офис компании с Минске', description='г. Минск, пр. Партизанский, 8к2', image='/assets/images/bg/quality.webp') }}
+            </div>
+        </section>
+
+        {% include "section/advantages.njk" %}
+        {% include "section/quality.njk" %}
+        {{ partnerSection(className='about-page__partner') }}
+        {% include "section/vacancies-info.njk" %}
+    </main>
+
+    {% include "widgets/footer.njk" %}
+{% endblock %}

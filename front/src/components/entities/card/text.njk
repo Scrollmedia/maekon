@@ -1,0 +1,9 @@
+{% macro textCard(title='', description=[''], className='') %}
+    <div class="card-text{% if className %} {{ className }}{% endif %}">
+        <h4 class="card-text__title">{{ title }}</h4>
+
+        {% for item in description %}
+            <p class="card-text__description" data-line-reveal>{{ item }}</p>
+        {% endfor %}
+    </div>
+{% endmacro %}

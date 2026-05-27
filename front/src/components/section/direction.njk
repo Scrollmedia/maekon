@@ -1,0 +1,29 @@
+{% from "entities/card/direction.njk" import directionCard %}
+{% from "entities/slider-counter.njk" import sliderCounter %}
+
+<section class="direction">
+    <div class="direction__container container mx-auto">
+        <div class="direction__header section-header">
+            <h3 class="section-title">Направления</h3>
+
+            {{ sliderCounter(className='direction__slider-counter') }}
+        </div>
+
+        <div class="direction__block">
+            <div class="swiper direction__slider" data-card-reveal-group>
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">{{ directionCard() }}</div>
+                    <div class="swiper-slide">{{ directionCard() }}</div>
+                    <div class="swiper-slide">{{ directionCard() }}</div>
+                    <div class="swiper-slide">{{ directionCard() }}</div>
+                </div>
+            </div>
+
+            <button type="button" class="direction__slider-btn-next">
+                <svg class="direction__slider-btn-next-icon" aria-hidden="true">
+                    <use href="/assets/icons/sprite.svg?v={{ version }}#chevron-left"></use>
+                </svg>
+            </button>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,12 @@
+{% macro heroCard(image='/assets/images/bg/hero.webp', title='Современные решения для термообработки', description='Собственное производство. Гарантия 5 лет') %}
+
+<div class="hero-card">
+    <img class="hero-card__bg" src="{{ image }}" alt="{{ title }}">
+    <div class="hero-card__container container mx-auto">
+        <div class="hero-card__content">
+            <h4 class="hero-card__title">{{ title }}</h4>
+            <p class="hero-card__description" data-line-reveal>{{ description }}</p>
+        </div>
+    </div>
+</div>
+{% endmacro %}

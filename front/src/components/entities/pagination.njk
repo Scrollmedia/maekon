@@ -1,0 +1,24 @@
+{% macro pagination() %}
+<div class="pagination">
+    <div class="pagination__list">
+        <a class="pagination__item active" href="#">1</a>
+        <a class="pagination__item" href="#">2</a>
+        <a class="pagination__item max-md:hidden" href="#">3</a>
+        <span class="pagination__item pagination__item--dots">...</span>
+        <a class="pagination__item" href="#">25</a>
+    </div>
+
+    <div class="pagination__actions">
+        <a href="#" class="pagination__actions-btn pagination__actions-btn--prev">
+            <svg class="pagination__actions-btn-icon" aria-hidden="true">
+                <use href="/assets/icons/sprite.svg?v={{ version }}#chevron-left"></use>
+            </svg>
+        </a>
+        <a href="#" class="pagination__actions-btn pagination__actions-btn--next">
+            <svg class="pagination__actions-btn-icon" aria-hidden="true">
+                <use href="/assets/icons/sprite.svg?v={{ version }}#chevron-left"></use>
+            </svg>
+        </a>
+    </div>
+</div>
+{% endmacro %}

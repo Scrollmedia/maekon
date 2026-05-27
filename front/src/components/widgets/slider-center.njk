@@ -1,0 +1,33 @@
+{% from "entities/slider-counter.njk" import sliderCounter %}
+{% from "entities/card/slider-center.njk" import sliderCenterCard %}
+
+<div class="slider-center">
+    {{ sliderCounter(className='slider-center__slider-counter') }}
+    <button type="button" class="slider-center__slider-btn-prev slider-btn slider-btn--lg">
+        <svg class="slider-center__slider-btn-prev-icon slider-btn__icon" aria-hidden="true">
+            <use href="/assets/icons/sprite.svg?v={{ version }}#chevron-left"></use>
+        </svg>
+    </button>
+    <button type="button" class="slider-center__slider-btn-next slider-btn slider-btn--lg">
+        <svg class="slider-center__slider-btn-next-icon slider-btn__icon" aria-hidden="true">
+            <use href="/assets/icons/sprite.svg?v={{ version }}#chevron-left"></use>
+        </svg>
+    </button>
+
+    <div class="swiper slider-center__slider" data-card-reveal-group>
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                {{ sliderCenterCard() }}
+            </div>
+            <div class="swiper-slide">
+                {{ sliderCenterCard() }}
+            </div>
+            <div class="swiper-slide">
+                {{ sliderCenterCard() }}
+            </div>
+            <div class="swiper-slide">
+                {{ sliderCenterCard() }}
+            </div>
+        </div>
+    </div>
+</div>

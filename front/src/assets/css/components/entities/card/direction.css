@@ -1,0 +1,45 @@
+.direction-card {
+    @apply relative z-1 flex items-end p-5 w-full h-[--spacing(800/4)] bg-card rounded-card overflow-hidden;
+    @apply max-3xl:h-[--spacing(600/4)];
+    @apply max-xl:h-[--spacing(500/4)];
+    @apply max-lg:h-[--spacing(450/4)];
+    @apply max-md:h-[--spacing(500/4)] max-md:rounded-2xl;
+
+    &:hover .direction-card__bg {
+        @apply scale-110;
+    }
+}
+
+.direction-card__bg {
+    @apply absolute top-0 left-0 -z-1 w-full h-full object-cover transition-transform duration-600 ease-in-out;
+}
+
+.direction-card__content {
+    @apply flex items-end gap-2.5 p-12.5 w-full bg-white-adaptive-50% rounded-card-sm backdrop-blur-2xl;
+    @apply max-xl:p-7.5;
+    @apply max-md:flex-col max-md:gap-7.5 max-md:p-5
+}
+
+.direction-card__title {
+    @apply w-full max-w-[758px] font-sans text-5xl font-semibold leading-[1.2];
+    @apply max-3xl:text-[length:--spacing(40/4)] max-3xl:w-1/2;
+    @apply max-xl:text-[length:--spacing(32/4)];
+    @apply max-lg:text-[length:--spacing(24/4)];
+    @apply max-md:text-xl max-md:w-full;
+}
+
+.direction-card__description {
+    @apply max-w-[578px] text-2xl leading-[1.2];
+    @apply max-3xl:text-xl max-3xl:w-1/2;
+    @apply max-xl:text-base;
+    @apply max-md:text-sm max-md:w-full;
+}
+
+.direction-card-cursor-badge {
+    @apply fixed top-0 left-0 z-200 flex items-center justify-center w-[--spacing(179/4)] h-[--spacing(121/4)] text-ctnt-1 font-medium bg-white-adaptive-30% rounded-card backdrop-blur-2xl;
+    @apply pointer-events-none opacity-0 transition-opacity;
+}
+
+.direction-card-cursor-badge.is-visible {
+    @apply opacity-100;
+}

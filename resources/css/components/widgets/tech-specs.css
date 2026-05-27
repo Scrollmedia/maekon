@@ -1,0 +1,35 @@
+.tech-specs {
+    @apply flex flex-col gap-2.5 mx-auto p-7.5 w-full max-w-[--spacing(1340/4)] text-ctnt-1 bg-card rounded-card;
+    @apply max-3xl:p-5;
+    @apply max-lg:p-2.5;
+}
+
+.tech-specs__row {
+    @apply grid grid-cols-[2.25fr_1.5fr_1fr] gap-2.5;
+    @apply max-md:flex max-md:flex-col max-md:gap-4 max-md:py-3 max-md:px-4 max-md:bg-black-adaptive-5% max-md:rounded-card-sm;
+}
+
+.tech-specs__row--th {
+    @apply max-md:hidden;
+}
+
+.tech-specs__th {
+    @apply pb-6;
+    @apply max-lg:pb-4;
+}
+
+.tech-specs__td {
+    @apply p-5 bg-black-adaptive-5% rounded-card-sm;
+    @apply max-xl:py-4;
+    @apply max-lg:py-3 max-lg:px-4;
+    @apply max-md:p-0 max-md:bg-transparent;
+}
+
+.tech-specs__td-title {
+    @apply md:hidden mb-1.5 text-sm;
+}
+
+.tech-specs__td-value {
+    @apply text-xl font-semibold;
+    @apply max-xl:text-base;
+}

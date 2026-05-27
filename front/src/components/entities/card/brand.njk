@@ -1,0 +1,13 @@
+{% set logoImage = logoImage | default('/assets/images/brands/Maetherm-logo.webp') %}
+{% set image = image | default('/assets/images/brands/Maetherm-img.webp') %}
+{% set title = title | default('Бренд Maetherm') %}
+{% set description = description | default('Конпания "МАЕКОН" занимается проектированием и производством технологического оборудования с 2016 года. ') %}
+
+<div class="brand-card" data-card-reveal-item>
+    <img class="brand-card__bg" src="/assets/images/bg/brand.webp" alt="{{ title }}">
+
+    <div class="brand-card__content">
+        <h5 class="brand-card__title">{{ title }}</h5>
+        <p class="brand-card__description" data-line-reveal>{{ description }}</p>
+    </div>
+</div>

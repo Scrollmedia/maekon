@@ -1,0 +1,39 @@
+{% from "section/hero-static.njk" import heroStatic %}
+{% from "entities/card/article.njk" import articleCard %}
+{% from "entities/pagination.njk" import pagination %}
+
+{% extends "layout/default.njk" %}
+
+{% block content %}
+    {% include "widgets/header.njk" %}
+
+    <main>
+        {{ heroStatic(
+            image='/assets/images/bg/article.webp',
+            title='Статьи',
+            breadcrumbsItems=[
+                { title: 'Главная', url: '#' },
+                { title: 'Статьи', url: '#' }
+            ]
+        ) }}
+
+        <section class="article-page" data-card-reveal-group>
+            <div class="article-page__container container mx-auto">
+                {{ articleCard(direction='row', attrs="data-card-reveal-item") }}
+
+                <div class="article-page__list" >
+                    {{ articleCard(attrs="data-card-reveal-item") }}
+                    {{ articleCard(attrs="data-card-reveal-item") }}
+                    {{ articleCard(attrs="data-card-reveal-item") }}
+                    {{ articleCard(attrs="data-card-reveal-item") }}
+                    {{ articleCard(attrs="data-card-reveal-item") }}
+                    {{ articleCard(attrs="data-card-reveal-item") }}
+                </div>
+
+                {{ pagination() }}
+            </div>
+        </section>
+    </main>
+
+    {% include "widgets/footer.njk" %}
+{% endblock %}

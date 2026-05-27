@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+        <title>Категории</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            body {
+                background-color: #f5f5f7;
+                font-family:
+                    -apple-system, 'SF Pro Text', 'SF Pro Display', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+                color: #1d1d1f;
+                line-height: 1.4;
+                min-height: 100vh;
+            }
+
+            /* Main container */
+            .container {
+                margin: 0 auto;
+                padding: 3rem 1.5rem 4rem;
+            }
+
+            /* Apple-style header */
+            .hero {
+                text-align: center;
+                padding: 2rem 0 2.5rem;
+            }
+            .hero h1 {
+                font-size: 3.5rem;
+                font-weight: 600;
+                letter-spacing: -0.005em;
+                background: linear-gradient(135deg, #1c1c1e, #3a3a3e);
+                background-clip: text;
+                -webkit-background-clip: text;
+                color: transparent;
+            }
+
+            /* Category quick filter chips */
+            .category-strip {
+                max-width: 780px;
+                margin: 0 auto 2rem;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 0.6rem;
+            }
+            .cat-chip {
+                background: #ffffff;
+                border-radius: 40px;
+                padding: 0.4rem 1.1rem;
+                font-size: 0.8rem;
+                font-weight: 500;
+                color: #1d1d1f;
+                cursor: pointer;
+                transition: all 0.2s ease;
+                border: 0.5px solid #e2e2e6;
+                box-shadow: 0 1px 1px rgba(0, 0, 0, 0.02);
+                backdrop-filter: blur(2px);
+            }
+            .cat-chip:hover {
+                background: #e8e8ed;
+                transform: scale(0.97);
+            }
+            .cat-chip.active-chip {
+                background: #0071e3;
+                color: white;
+                border-color: #0071e3;
+                box-shadow: 0 2px 8px rgba(0, 113, 227, 0.2);
+            }
+
+            /* SEARCH SECTION with absolute suggestions */
+            .search-section {
+                max-width: 580px;
+                margin: 0 auto 2rem;
+                position: relative;
+            }
+
+            .search-wrapper {
+                position: relative;
+                width: 100%;
+                background: rgba(255, 255, 255, 0.95);
+                border-radius: 12px;
+                box-shadow:
+                    0 2px 8px rgba(0, 0, 0, 0.04),
+                    0 0 0 1px rgba(0, 0, 0, 0.02);
+                transition: all 0.25s ease;
+            }
+
+            .search-wrapper:focus-within {
+                box-shadow:
+                    0 4px 16px rgba(0, 0, 0, 0.08),
+                    0 0 0 2px #0071e3;
+            }
+
+            .search-input {
+                width: 100%;
+                padding: 14px 20px;
+                font-size: 1rem;
+                font-weight: 400;
+                background: transparent;
+                border: none;
+                outline: none;
+                font-family: inherit;
+                color: #1d1d1f;
+                letter-spacing: -0.2px;
+            }
+
+            .search-input::placeholder {
+                color: #aeaeb2;
+                font-weight: 400;
+            }
+
+            /* Clear button */
+            .search-clear {
+                position: absolute;
+                right: 16px;
+                top: 50%;
+                transform: translateY(-50%);
+                background: #e8e8ed;
+                border-radius: 50%;
+                width: 22px;
+                height: 22px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                opacity: 0;
+                transition: opacity 0.2s;
+                color: #5e5e66;
+                font-size: 12px;
+                font-weight: 500;
+                pointer-events: none;
+            }
+
+            .search-input:not(:placeholder-shown) ~ .search-clear {
+                opacity: 1;
+                pointer-events: auto;
+            }
+
+            .search-clear:hover {
+                background: #d2d2d7;
+            }
+
+            /* ABSOLUTE POSITIONING for suggestions */
+            .suggestions-container {
+                position: absolute;
+                top: calc(100% + 8px);
+                left: 0;
+                right: 0;
+                background: #ffffff;
+                border-radius: 14px;
+                box-shadow:
+                    0 12px 32px rgba(0, 0, 0, 0.12),
+                    0 1px 2px rgba(0, 0, 0, 0.05);
+                overflow: hidden;
+                z-index: 1000;
+                max-height: 320px;
+                overflow-y: auto;
+                display: none;
+            }
+
+            .suggestion-item {
+                padding: 12px 20px;
+                cursor: pointer;
+                transition: background 0.2s;
+                border-bottom: 0.5px solid #e9e9ef;
+                display: flex;
+                justify-content: space-between;
+                align-items: baseline;
+                flex-wrap: wrap;
+                gap: 6px;
+            }
+            .suggestion-item:last-child {
+                border-bottom: none;
+            }
+            .suggestion-item:hover {
+                background: #f5f5f7;
+            }
+            .suggestion-title {
+                font-size: 1rem;
+                font-weight: 500;
+                color: #1d1d1f;
+                letter-spacing: -0.2px;
+            }
+            .suggestion-cat-badge {
+                font-size: 0.65rem;
+                background: #e9e9ef;
+                padding: 2px 8px;
+                border-radius: 30px;
+                color: #3a3a3e;
+                font-weight: 500;
+            }
+
+            .no-results {
+                padding: 20px;
+                text-align: center;
+                color: #86868b;
+                font-size: 0.9rem;
+            }
+
+            /* MAIN NAVIGATION GRID — cards with category badges */
+            .nav-section {
+                margin-top: 1rem;
+            }
+
+            .nav-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+                gap: 1rem;
+            }
+
+            .card {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                background: #ffffff;
+                border-radius: 18px;
+                padding: 1.25rem;
+                cursor: pointer;
+                transition: all 0.25s cubic-bezier(0.25, 0.1, 0.25, 1);
+                border: 0.5px solid #e9e9ef;
+                box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
+                position: relative;
+            }
+
+            .card.developed {
+                cursor: default;
+                opacity: 0.5;
+                pointer-events: none;
+            }
+
+            .card:hover {
+                transform: translateY(-4px);
+                box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+                border-color: rgba(0, 113, 227, 0.3);
+            }
+
+            .card-title {
+                font-size: 1.1rem;
+                font-weight: 600;
+                letter-spacing: -0.2px;
+                color: #1d1d1f;
+                margin-bottom: 0.5rem;
+            }
+
+            .card-url {
+                font-size: 0.7rem;
+                color: #86868b;
+                font-family: monospace;
+                margin-bottom: 0.65rem;
+                opacity: 0.7;
+            }
+
+            /* category badge style */
+            .card-category {
+                display: inline-block;
+                background: #f2f2f5;
+                border-radius: 20px;
+                padding: 0.2rem 0.8rem;
+                font-size: 0.7rem;
+                font-weight: 500;
+                color: #2c2c2e;
+                letter-spacing: -0.2px;
+                backdrop-filter: blur(2px);
+                transition: all 0.1s;
+                border: 0.3px solid #e2e2e6;
+            }
+
+            .card-meta {
+                margin-top: auto;
+                display: flex;
+                flex-wrap: wrap;
+                gap: 0.4rem;
+            }
+
+            /* Footer */
+            .footer-note {
+                margin-top: 4rem;
+                text-align: center;
+                font-size: 0.8rem;
+                color: #8e8e93;
+                border-top: 0.5px solid #e9e9ef;
+                padding-top: 2rem;
+            }
+
+            .dev-pages-note {
+                margin-top: 0.5rem;
+                text-align: center;
+                font-size: 0.8rem;
+                color: #8e8e93;
+            }
+
+            /* Scrollbar styling */
+            .suggestions-container::-webkit-scrollbar {
+                width: 6px;
+            }
+
+            .suggestions-container::-webkit-scrollbar-track {
+                background: #f5f5f7;
+                border-radius: 3px;
+            }
+
+            .suggestions-container::-webkit-scrollbar-thumb {
+                background: #c6c6c8;
+                border-radius: 3px;
+            }
+
+            /* Responsive */
+            @media (max-width: 680px) {
+                .container {
+                    padding: 1.5rem;
+                }
+                .hero h1 {
+                    font-size: 2.5rem;
+                }
+                .nav-grid {
+                    gap: 0.9rem;
+                }
+                .card {
+                    padding: 1.2rem;
+                }
+                .card-title {
+                    font-size: 1.2rem;
+                }
+                .cat-chip {
+                    font-size: 0.7rem;
+                    padding: 0.3rem 0.9rem;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <!-- Category quick filter chips -->
+            <div
+                class="category-strip"
+                id="categoryFilterStrip"></div>
+
+            <!-- Search Section with Absolute Suggestions -->
+            <div class="search-section">
+                <div class="search-wrapper">
+                    <input
+                        type="text"
+                        class="search-input"
+                        id="globalSearch"
+                        placeholder="Поиск по названию, категории..."
+                        autocomplete="off" />
+                    <div
+                        class="search-clear"
+                        id="clearSearchBtn">
+                        ✕
+                    </div>
+                </div>
+                <div
+                    id="suggestionsContainer"
+                    class="suggestions-container"></div>
+            </div>
+
+            <!-- Navigation Grid -->
+            <div class="nav-section">
+                <div
+                    class="nav-grid"
+                    id="navigationGrid"></div>
+            </div>
+
+            <div class="footer-note">⌘K поиск · Escape сброс</div>
+            <div
+                class="dev-pages-note"
+                id="devPagesCounter"></div>
+        </div>
+
+        <script>
+            // ---------- PAGES DATABASE with CATEGORIES ----------
+            const IN_DEVELOPMENT_STATUS = 'in development'
+            const pagesCatalog = [
+                {
+                    title: 'Главная',
+                    url: 'main.html',
+                    category: 'Common',
+                    tags: '',
+                },
+                {
+                    title: 'О компании',
+                    url: 'about.html',
+                    category: 'Common',
+                    tags: '',
+                },
+                {
+                    title: 'Направления',
+                    url: 'directions.html',
+                    category: 'Common',
+                    tags: '',
+                },
+                {
+                    title: 'Направления. Детальная',
+                    url: 'directions-item.html',
+                    category: 'Common',
+                    tags: '',
+                },
+                {
+                    title: 'Бренды',
+                    url: 'brands.html',
+                    category: 'Common',
+                    tags: '',
+                },
+                {
+                    title: 'Бренды. Детальная',
+                    url: 'brands-item.html',
+                    category: 'Common',
+                    tags: '',
+                },
+                {
+                    title: 'Статьи',
+                    url: 'articles.html',
+                    category: 'Common',
+                    tags: '',
+                },
+                {
+                    title: 'Статьи. Детальная',
+                    url: 'articles-item.html',
+                    category: 'Common',
+                    tags: '',
+                },
+                {
+                    title: 'Вакансии',
+                    url: 'vacancies.html',
+                    category: 'Common',
+                    tags: '',
+                },
+                {
+                    title: 'Контакты',
+                    url: 'contacts.html',
+                    category: 'Common',
+                    tags: '',
+                },
+                {
+                    title: '404',
+                    url: '404.html',
+                    category: 'Common',
+                    tags: '',
+                },
+            ]
+
+            function getPageCategory(page) {
+                return page.status === IN_DEVELOPMENT_STATUS ? IN_DEVELOPMENT_STATUS : page.category
+            }
+
+            function getPageTags(page) {
+                if (!page.tags) return []
+                return page.tags
+                    .split(',')
+                    .map((tag) => tag.trim())
+                    .filter(Boolean)
+            }
+
+            function getPageTagsLower(page) {
+                return getPageTags(page).map((tag) => tag.toLowerCase())
+            }
+
+            function getPageFacets(page) {
+                return [getPageCategory(page), ...getPageTags(page)]
+            }
+
+            // Helper: extract unique categories sorted
+            function getAllCategories() {
+                const cats = new Set()
+                pagesCatalog.forEach((page) => {
+                    getPageFacets(page).forEach((facet) => {
+                        if (facet) cats.add(facet)
+                    })
+                })
+                return Array.from(cats).sort()
+            }
+
+            let activeCategoryFilter = null // null = no category filter
+            let currentSearchQuery = ''
+
+            // Escape HTML utility
+            function escapeHtml(str) {
+                const div = document.createElement('div')
+                div.textContent = str
+                return div.innerHTML
+            }
+
+            // Filter pages by search text (title, url, category) AND active category
+            function filterPagesByAll(query, categoryFilter) {
+                let filtered = [...pagesCatalog]
+                const lowerQuery = (query || '').trim().toLowerCase()
+
+                if (lowerQuery !== '') {
+                    filtered = filtered.filter(
+                        (page) =>
+                            page.title.toLowerCase().includes(lowerQuery) ||
+                            page.url.toLowerCase().includes(lowerQuery) ||
+                            (getPageCategory(page) && getPageCategory(page).toLowerCase().includes(lowerQuery)) ||
+                            getPageTagsLower(page).some((tag) => tag.includes(lowerQuery)),
+                    )
+                }
+
+                if (categoryFilter && categoryFilter !== 'all') {
+                    filtered = filtered.filter((page) => getPageFacets(page).some((facet) => facet === categoryFilter))
+                }
+
+                return filtered
+            }
+
+            // Render navigation grid with category badges
+            function renderGrid(pages) {
+                const gridContainer = document.getElementById('navigationGrid')
+                if (!pages.length) {
+                    gridContainer.innerHTML = `<div style="grid-column:1/-1; text-align:center; padding: 3rem; color:#86868b;">📭 Нет страниц по выбранным фильтрам</div>`
+                    return
+                }
+
+                let cardsHTML = ''
+                for (const page of pages) {
+                    const pageFacets = getPageFacets(page)
+                    const metaBadges = pageFacets
+                        .map((facet) => `<div class="card-category">🏷️ ${escapeHtml(facet)}</div>`)
+                        .join('')
+                    cardsHTML += `
+                        <div class="card${page.status === IN_DEVELOPMENT_STATUS ? ' developed' : ''}" data-url="${page.url}">
+                            <div class="card-title">${escapeHtml(page.title)}</div>
+                            <div class="card-url">${escapeHtml(page.url)}</div>
+                            <div class="card-meta">${metaBadges}</div>
+                        </div>
+                    `
+                }
+                gridContainer.innerHTML = cardsHTML
+
+                // Attach click handlers
+                document.querySelectorAll('.card').forEach((card) => {
+                    card.addEventListener('click', (e) => {
+                        // prevent if click on badge? still navigates – fine
+                        const url = card.getAttribute('data-url')
+                        if (url) navigateTo(url)
+                    })
+                })
+            }
+
+            // Render category chips + highlight active
+            function renderCategoryChips() {
+                const strip = document.getElementById('categoryFilterStrip')
+                const categories = getAllCategories()
+                // Add 'active-chip' class if 'Все' is the active filter (i.e., activeCategoryFilter is null)
+                let chipsHTML = `<div class="cat-chip ${activeCategoryFilter === null ? 'active-chip' : ''}" data-cat="all">✨ Все</div>`
+                categories.forEach((cat) => {
+                    // Check if the current category matches the active filter
+                    const isActive = activeCategoryFilter === cat
+                    chipsHTML += `<div class="cat-chip ${isActive ? 'active-chip' : ''}" data-cat="${escapeHtml(cat)}">${escapeHtml(cat)}</div>`
+                })
+                strip.innerHTML = chipsHTML
+
+                // Add click listeners
+                document.querySelectorAll('.cat-chip').forEach((chip) => {
+                    chip.addEventListener('click', (e) => {
+                        const catValue = chip.getAttribute('data-cat')
+                        if (catValue === 'all') {
+                            activeCategoryFilter = null
+                        } else {
+                            activeCategoryFilter = catValue
+                        }
+                        // re-render everything: preserve search query
+                        updateFullUI()
+                        renderCategoryChips() // Re-render chips to update active state
+                        // keep suggestions? refresh suggestions consistency
+                        const searchInput = document.getElementById('globalSearch')
+                        if (searchInput.value.trim()) {
+                            const filteredForSuggest = filterPagesByAll(searchInput.value, activeCategoryFilter)
+                            renderSuggestions(filteredForSuggest, searchInput.value)
+                        } else {
+                            const baseFiltered = filterPagesByAll('', activeCategoryFilter)
+                            renderSuggestions(baseFiltered, '')
+                        }
+                    })
+                })
+            }
+            // Render absolute suggestions (with category tag)
+            function renderSuggestions(filteredPages, query) {
+                const container = document.getElementById('suggestionsContainer')
+                const lowerQuery = (query || '').trim().toLowerCase()
+
+                if (!lowerQuery && filteredPages.length === pagesCatalog.length) {
+                    // if empty query and no category filter maybe show only top? we hide empty default
+                    if (!activeCategoryFilter && !query.trim()) {
+                        container.style.display = 'none'
+                        return
+                    }
+                    if (filteredPages.length === 0) {
+                        container.innerHTML = `<div class="no-results">Ничего не найдено</div>`
+                        container.style.display = 'block'
+                        return
+                    }
+                }
+
+                if (!lowerQuery && filteredPages.length === 0) {
+                    container.innerHTML = `<div class="no-results">🔍 Нет совпадений</div>`
+                    container.style.display = 'block'
+                    return
+                }
+
+                if (filteredPages.length === 0) {
+                    container.innerHTML = `<div class="no-results">Ничего не найдено</div>`
+                    container.style.display = 'block'
+                    return
+                }
+
+                let suggestionsHTML = ''
+                const displayLimit = 8
+                for (const page of filteredPages.slice(0, displayLimit)) {
+                    let highlightedTitle = page.title
+                    if (lowerQuery && page.title.toLowerCase().includes(lowerQuery)) {
+                        const regex = new RegExp(`(${escapeRegExp(lowerQuery)})`, 'gi')
+                        highlightedTitle = page.title.replace(
+                            regex,
+                            `<mark style="background: #0071e3; color: white; border-radius: 4px; padding: 0 2px;">$1</mark>`,
+                        )
+                    } else if (
+                        lowerQuery &&
+                        getPageCategory(page) &&
+                        getPageCategory(page).toLowerCase().includes(lowerQuery)
+                    ) {
+                        // if match by category, subtle highlight category but we mark title?
+                        // optional: just show normal
+                    }
+                    const facetLabels = getPageFacets(page)
+                        .map((facet) => `<span class="suggestion-cat-badge">${escapeHtml(facet)}</span>`)
+                        .join('')
+                    suggestionsHTML += `
+                        <div class="suggestion-item" data-url="${page.url}">
+                            <div class="suggestion-title">${highlightedTitle}</div>
+                            ${facetLabels}
+                        </div>
+                    `
+                }
+                container.innerHTML = suggestionsHTML
+                container.style.display = 'block'
+
+                document.querySelectorAll('.suggestion-item').forEach((item) => {
+                    item.addEventListener('click', (e) => {
+                        const url = item.getAttribute('data-url')
+                        if (url) navigateTo(url)
+                    })
+                })
+            }
+
+            function escapeRegExp(string) {
+                return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+            }
+
+            // Update grid & suggestions based on current search + category
+            function updateFullUI() {
+                const filtered = filterPagesByAll(currentSearchQuery, activeCategoryFilter)
+                renderGrid(filtered)
+                if (currentSearchQuery.trim() !== '' || activeCategoryFilter !== null) {
+                    renderSuggestions(filtered, currentSearchQuery)
+                } else {
+                    const container = document.getElementById('suggestionsContainer')
+                    if (container) container.style.display = 'none'
+                }
+            }
+
+            // Search input handler
+            function handleSearchInput(value) {
+                currentSearchQuery = value
+                updateFullUI()
+            }
+
+            // reset search & category
+            function resetAllFilters() {
+                const searchInput = document.getElementById('globalSearch')
+                searchInput.value = ''
+                currentSearchQuery = ''
+                activeCategoryFilter = null
+                updateFullUI()
+                renderCategoryChips() // refresh chip active style
+                const container = document.getElementById('suggestionsContainer')
+                if (container) container.style.display = 'none'
+                searchInput.focus()
+            }
+
+            function navigateTo(url) {
+                window.location.href = url
+            }
+
+            function closeSuggestionsOnClickOutside(e) {
+                const searchSection = document.querySelector('.search-section')
+                const suggestionsContainer = document.getElementById('suggestionsContainer')
+                if (searchSection && !searchSection.contains(e.target)) {
+                    suggestionsContainer.style.display = 'none'
+                }
+            }
+
+            function renderDevelopmentCounter() {
+                const counter = document.getElementById('devPagesCounter')
+                if (!counter) return
+
+                const pagesInDevelopment = pagesCatalog.filter((page) => page.status === IN_DEVELOPMENT_STATUS).length
+                counter.textContent = `Осталось в разработке: ${pagesInDevelopment}`
+            }
+
+            // keyboard navigation for suggestions
+            let currentSuggestionIndex = -1
+            function updateActiveSuggestion(items, index) {
+                items.forEach((item, i) => {
+                    if (i === index) {
+                        item.style.background = '#f0f0f5'
+                        item.scrollIntoView({ block: 'nearest' })
+                    } else {
+                        item.style.background = ''
+                    }
+                })
+            }
+
+            // INIT
+            document.addEventListener('DOMContentLoaded', () => {
+                const searchInput = document.getElementById('globalSearch')
+                const clearBtn = document.getElementById('clearSearchBtn')
+                const suggestionsContainer = document.getElementById('suggestionsContainer')
+
+                // initial render categories and grid
+                renderCategoryChips()
+                renderGrid(pagesCatalog)
+                renderDevelopmentCounter()
+
+                // Input event
+                searchInput.addEventListener('input', (e) => {
+                    handleSearchInput(e.target.value)
+                })
+
+                clearBtn.addEventListener('click', () => {
+                    resetAllFilters()
+                })
+
+                document.addEventListener('click', closeSuggestionsOnClickOutside)
+
+                searchInput.addEventListener('focus', () => {
+                    if (currentSearchQuery.trim() !== '' || activeCategoryFilter !== null) {
+                        const filtered = filterPagesByAll(currentSearchQuery, activeCategoryFilter)
+                        if (filtered.length) renderSuggestions(filtered, currentSearchQuery)
+                        else {
+                            const container = document.getElementById('suggestionsContainer')
+                            if (container) container.innerHTML = `<div class="no-results">Нет результатов</div>`
+                            if (container) container.style.display = 'block'
+                        }
+                    } else if (activeCategoryFilter) {
+                        const filtered = filterPagesByAll('', activeCategoryFilter)
+                        if (filtered.length) renderSuggestions(filtered, '')
+                    }
+                })
+
+                // Keyboard shortcuts
+                document.addEventListener('keydown', (e) => {
+                    if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+                        e.preventDefault()
+                        searchInput.focus()
+                    }
+                    if (e.key === 'Escape') {
+                        resetAllFilters()
+                        searchInput.blur()
+                        suggestionsContainer.style.display = 'none'
+                        currentSuggestionIndex = -1
+                    }
+                })
+
+                // Arrow navigation + Enter
+                let arrowIndex = -1
+                searchInput.addEventListener('keydown', (e) => {
+                    const items = document.querySelectorAll('.suggestion-item')
+                    const containerVisible = suggestionsContainer.style.display === 'block'
+                    if (items.length && containerVisible) {
+                        if (e.key === 'ArrowDown') {
+                            e.preventDefault()
+                            arrowIndex = (arrowIndex + 1) % items.length
+                            updateActiveSuggestion(items, arrowIndex)
+                        } else if (e.key === 'ArrowUp') {
+                            e.preventDefault()
+                            arrowIndex = arrowIndex <= 0 ? items.length - 1 : arrowIndex - 1
+                            updateActiveSuggestion(items, arrowIndex)
+                        } else if (e.key === 'Enter' && arrowIndex >= 0) {
+                            e.preventDefault()
+                            const url = items[arrowIndex].getAttribute('data-url')
+                            if (url) navigateTo(url)
+                        }
+                    } else {
+                        arrowIndex = -1
+                    }
+                })
+
+                // initial sync
+                currentSearchQuery = ''
+                activeCategoryFilter = null
+                updateFullUI()
+            })
+        </script>
+    </body>
+</html>

@@ -1,0 +1,13 @@
+{% macro articleCard(image='/assets/images/article.webp', title='Конпания "МАЕКОН" занимается проектированием и производством технологического оборудования', description='Конпания "МАЕКОН" занимается проектированием и производством технологического оборудования', direction='column', attrs="") %}
+<article class="article-card{% if direction == 'row' %} article-card--row{% endif %}" {{ attrs }}>
+    <a class="article-card__link" href="#"></a>
+    <div class="article-card__date">24.04.2026</div>
+    <div class="article-card__image-wrapper">
+        <img class="article-card__image" src="{{ image }}" alt="{{ title }}">
+    </div>
+    <div class="article-card__content">
+        <h3 class="article-card__title">{{ title }}</h3>
+        <p class="article-card__description" data-line-reveal>{{ description }}</p>
+    </div>
+</article>
+{% endmacro %}

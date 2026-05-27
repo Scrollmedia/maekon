@@ -1,0 +1,12 @@
+{% set image = image | default('/assets/images/bg/quality.webp') %}
+{% set title = title | default('Соответствие ISO 9001') %}
+{% set description = description | default('Конпания "МАЕКОН" занимается проектированием и производством технологического оборудования с 2016 года. ') %}
+
+<div class="quality-card">
+    <img class="quality-card__bg" src="{{ image }}" alt="{{ title }}">
+
+    <div class="quality-card__content">
+        <h5 class="quality-card__title">{{ title }}</h5>
+        <p class="quality-card__description" data-line-reveal>{{ description }}</p>
+    </div>
+</div>

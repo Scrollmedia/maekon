@@ -1,0 +1,57 @@
+.doc-card {
+    @apply flex gap-7.5 p-2.5 bg-card hover:bg-card/70 rounded-card-sm transition-colors;
+    @apply max-md:flex-wrap max-md:gap-4;
+}
+
+.doc-card__icon-wrapper {
+    @apply shrink-0 flex items-center justify-center size-20 bg-black-adaptive-5% rounded-card-sm;
+    @apply max-lg:size-15;
+    @apply max-md:size-10;
+}
+
+.doc-card__icon {
+    @apply w-7.5 fill-transparent text-accent-500;
+    @apply max-lg:w-5;
+    @apply max-md:w-4;
+}
+
+.doc-card__title {
+    @apply my-auto text-2xl font-semibold text-ctnt-1;
+    @apply max-3xl:text-xl;
+    @apply max-lg:text-base;
+    @apply max-md:text-sm max-md:w-[calc(100%-56px)];
+}
+
+.doc-card__right {
+    @apply shrink-0 flex gap-2.5 ml-auto;
+    @apply max-md:grow max-md:ml-0;
+}
+
+.doc-card__info {
+    @apply flex items-center gap-2.5 p-5 min-w-[--spacing(267/4)] text-ctnt-1 bg-black-adaptive-10% rounded-card-xs;
+    @apply max-xl:min-w-[--spacing(168/4)];
+    @apply max-lg:min-w-[--spacing(136/4)];
+    @apply max-md:grow max-md:py-4 max-md:min-w-auto;
+}
+
+.doc-card__info-item {
+    @apply text-xl;
+    @apply max-lg:text-sm;
+    @apply max-md:text-xs;
+}
+
+.doc-card__info-item:not(:first-child) {
+    @apply relative pl-3.5 before:content-[''] before:absolute before:top-1/2 before:-translate-y-1/2 before:left-0 before:w-1 before:h-1 before:bg-black-adaptive-30% before:rounded-full;
+}
+
+.doc-card__download {
+    @apply cursor-pointer flex items-center justify-center p-4 bg-black-adaptive-100% hover:bg-accent-500 active:bg-accent-600 rounded-card-xs transition-colors;
+    @apply max-lg:p-[--spacing(9.5/4)];
+    @apply max-md:p-2;
+}
+
+.doc-card__download-icon {
+    @apply size-6.5 fill-white-adaptive-100%;
+    @apply max-lg:size-5.25;
+    @apply max-md:size-3.5;
+}

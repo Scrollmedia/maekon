@@ -1,0 +1,65 @@
+{% from "entities/slider-btn-list.njk" import sliderBtnList %}
+{% from "entities/slider-counter.njk" import sliderCounter %}
+
+{% macro specsInfoList(specifications=true) %}
+<div class="specs-info__list">
+    {% if specifications %}
+        <div class="specs-info__block">
+            <div class="section-header section-header--with-description">
+                <h4 class="section-title">основные харектеристики нашей&nbsp;продукции</h4>
+                <p class="section-description" data-line-reveal>
+                    Универсальное промышленное оборудование периодического действия, предназначенное для термической обработки (закалки, отжига, нормализации) материалов, где нагрев осуществляется в закрытой камере.
+                </p>
+            </div>
+
+            {% include "widgets/specification-list.njk" %}
+        </div>
+    {% endif %}
+
+    <div class="specs-info__block">
+        <div class="section-header section-header--with-description">
+            <h4 class="section-title">Технические харектеристики </h4>
+        </div>
+
+        {% include "widgets/tech-specs.njk" %}
+    </div>
+
+    <div class="specs-info__block">
+        <div class="section-header section-header--with-description">
+            <h4 class="section-title">Документы <br />для скачивания </h4>
+            <p class="section-description" data-line-reveal>
+                Универсальное промышленное оборудование периодического действия, предназначенное для термической обработки (закалки, отжига, нормализации) материалов, где нагрев осуществляется в закрытой камере.
+            </p>
+        </div>
+
+        {% include "widgets/doc-list.njk" %}
+    </div>
+
+    <div class="specs-info__block">
+        <div class="section-header section-header--with-description">
+            <h4 class="section-title">Видео <br />с нашего производства</h4>
+            <p class="section-description" data-line-reveal>
+                Универсальное промышленное оборудование периодического действия, предназначенное для термической обработки (закалки, отжига, нормализации) материалов, где нагрев осуществляется в закрытой камере.
+            </p>
+        </div>
+
+        <iframe class="specs-info__video" src="https://www.youtube.com/embed/ICqKcPD639k?si=FqislR2WDNxkgZVf" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+
+    <div class="specs-info__block">
+        <div class="section-header section-header--with-description">
+            <h4 class="section-title">галерея Видео </h4>
+
+            <div class="section-header__actions">
+                {{ sliderCounter(className='gallery-video-slider__counter') }}
+
+                {{ sliderBtnList(prevClass='gallery-video-slider__prev', nextClass='gallery-video-slider__next') }}
+            </div>
+
+            {{ sliderCounter(className='gallery-video-slider__counter') }}
+        </div>
+
+        {% include "widgets/gallery-video-slider.njk" %}
+    </div>
+</div>
+{% endmacro %}

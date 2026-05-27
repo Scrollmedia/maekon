@@ -1,0 +1,17 @@
+.card-text {
+    @apply flex flex-col gap-7.5 w-full;
+}
+
+.card-text__title {
+    @apply text-h4 leading-none;
+    @apply max-3xl:text-[length:--spacing(48/4)];
+    @apply max-lg:text-[length:--spacing(40/4)];
+    @apply max-md:text-[length:--spacing(32/4)];
+}
+
+.card-text__description {
+    @apply text-2xl font-medium;
+    @apply max-lg:text-[length:--spacing(20/4)];
+    @apply max-md:text-[length:--spacing(16/4)];
+}
+ 

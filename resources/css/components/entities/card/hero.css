@@ -1,0 +1,35 @@
+.hero-card {
+    @apply relative z-1 flex items-end pb-[--spacing(196/4)] w-full h-full;
+    @apply max-3xl:items-center max-3xl:pb-0;
+    @apply max-md:items-end max-md:pb-35;
+}
+
+.hero-card__bg {
+    @apply absolute top-0 left-0 -z-1 w-full h-full object-cover;
+}
+
+.hero-card__container {
+    @apply px-(--container-offset-sm);
+}
+
+.hero-card__content {
+    @apply max-w-[--spacing(1010/4)];
+    @apply max-3xl:max-w-[--spacing(758/4)];
+    @apply max-xl:max-w-[--spacing(526/4)];
+    @apply max-lg:max-w-[--spacing(505/4)];
+    @apply max-md:max-w-full;
+}
+
+.hero-card__title {
+    @apply text-h2 leading-none;
+    @apply max-3xl:text-[length:--spacing(96/4)];
+    @apply max-xl:text-[length:--spacing(64/4)];
+    @apply max-md:text-[length:--spacing(48/4)];
+}
+
+.hero-card__description {
+    @apply mt-12.5 text-2xl font-semibold leading-none;
+    @apply max-3xl:mt-5;
+    @apply max-lg:text-xl;
+    @apply max-lg:text-base;
+}

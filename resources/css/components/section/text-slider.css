@@ -1,0 +1,26 @@
+.text-slider {
+    @apply pt-[--spacing(100/4)] pb-[--spacing(98/4)];
+    @apply max-3xl:py-[--spacing(80/4)];
+    @apply max-lg:pt-[--spacing(60/4)];
+    @apply max-md:py-[--spacing(50/4)];
+}
+
+.text-slider__container {
+    @apply px-(--container-offset-sm);
+}
+
+.text-slider__text-top {
+    @apply mb-25 max-w-[--spacing(1057/4)];
+    @apply max-3xl:mb-[--spacing(80/4)] max-3xl:max-w-[--spacing(937/4)];
+    @apply max-xl:mb-[--spacing(56/4)];
+    @apply max-lg:mb-[--spacing(60/4)];
+    @apply max-md:mb-[--spacing(50/4)];
+}
+
+.text-slider__text-bottom {
+    @apply mt-25 mx-auto max-w-[--spacing(1057/4)];
+    @apply max-3xl:mt-[--spacing(80/4)] max-3xl:max-w-[--spacing(748/4)];
+    @apply max-xl:max-w-[--spacing(700/4)];
+    @apply max-lg:max-w-full;
+    @apply max-md:mt-[--spacing(60/4)];
+}

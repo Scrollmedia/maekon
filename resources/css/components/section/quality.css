@@ -1,0 +1,4 @@
+.quality {
+    @apply py-12.5 bg-black-adaptive-5% rounded-card;
+    @apply max-md:py-5;
+}

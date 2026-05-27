@@ -1,0 +1,90 @@
+.prose-xl {
+    @apply text-ctnt-1;
+    @apply max-xl:text-[length:--spacing(16/4)];
+    @apply max-md:text-[length:--spacing(14/4)];
+
+    strong {
+        @apply text-ctnt-1;
+    }
+    
+    & h1 {
+        @apply mb-[--spacing(50/4)] text-[length:--spacing(64/4)] font-normal font-heading leading-none text-ctnt-1;
+        @apply max-3xl:mb-[--spacing(30/4)] max-xl:text-[length:--spacing(48/4)];
+        @apply max-lg:text-[length:--spacing(40/4)];
+        @apply max-md:text-[length:--spacing(32/4)];
+    }
+    & h2 {
+        @apply mt-[--spacing(80/4)] mb-[--spacing(50/4)] text-[length:--spacing(36/4)] font-bold font-sans leading-none text-ctnt-1;
+        @apply max-xl:mt-[--spacing(60/4)] max-xl:mb-[--spacing(30/4)] max-xl:text-[length:--spacing(32/4)];
+        @apply max-md:mb-[--spacing(20/4)] max-md:text-[length:--spacing(24/4)];
+    }
+    & h3 {
+        @apply mt-[--spacing(80/4)] mb-[--spacing(50/4)] text-[length:--spacing(32/4)] font-bold font-sans leading-none text-ctnt-1;
+        @apply max-xl:mt-[--spacing(60/4)] max-xl:mb-[--spacing(30/4)] max-xl:text-[length:--spacing(24/4)];
+        @apply max-md:mb-[--spacing(20/4)] max-md:text-[length:--spacing(20/4)];
+    }
+    & h4 {
+        @apply mt-[--spacing(80/4)] mb-[--spacing(50/4)] text-[length:--spacing(24/4)] font-bold font-sans leading-none text-ctnt-1;
+        @apply max-xl:mt-[--spacing(60/4)] max-xl:mb-[--spacing(30/4)] max-xl:text-[length:--spacing(20/4)];
+        @apply max-md:mb-[--spacing(20/4)];
+    }
+    & h5 {
+        @apply mt-[--spacing(80/4)] mb-[--spacing(50/4)] text-[length:--spacing(20/4)] font-bold font-sans leading-none text-ctnt-1;
+        @apply max-xl:mt-[--spacing(60/4)] max-xl:mb-[--spacing(30/4)] max-xl:text-[length:--spacing(20/4)];
+        @apply max-md:mb-[--spacing(20/4)];
+    }
+
+    & p {
+        @apply my-[--spacing(30/4)];
+        @apply max-md:my-[--spacing(20/4)];
+    }
+
+    & > strong {
+        @apply text-2xl;
+        @apply max-xl:text-[length:--spacing(20/4)];
+        @apply max-md:text-[length:--spacing(16/4)];
+    }
+
+    & ol,
+    & ul {
+        @apply my-[--spacing(50/4)] pl-0;
+
+        & li {
+            @apply relative my-[--spacing(30/4)] pl-[2em] list-none;
+        }
+    }
+
+    & ol {
+        & li {
+            @apply before:content-[counter(list-item)] before:absolute before:top-0 before:left-0 before:font-heading before:text-2xl before:text-accent-500;
+            counter-increment: list-item;
+        }
+    }
+
+    & ul {
+        & li {
+            @apply before:content-[''] before:absolute before:top-2 before:left-0 before:w-3 before:h-3 before:bg-accent-500 before:rounded-full;
+        }
+    }
+
+    & img {
+        @apply my-[--spacing(70/4)] rounded-card object-cover;
+        @apply max-3xl:my-[--spacing(80/4)];
+        @apply max-xl:my-[--spacing(60/4)];
+        @apply max-lg:rounded-2xl;
+        @apply max-md:h-[--spacing(460/4)];
+    }
+
+    & .article-detail__slider-wrapper {
+        @apply my-[--spacing(70/4)];
+        @apply max-3xl:my-[--spacing(80/4)];
+        @apply max-xl:my-[--spacing(60/4)];
+        @apply max-lg:rounded-2xl;
+    }
+
+    & > * {
+        &:last-child {
+            @apply mb-0;
+        }
+    }
+}

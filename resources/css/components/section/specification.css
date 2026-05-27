@@ -1,0 +1,3 @@
+.specification__container {
+    @apply flex flex-col gap-17.5 py-25 px-(--container-offset-sm);
+}

@@ -1,0 +1,14 @@
+{% macro sliderBtnList(prevClass='', nextClass='') %}
+<div class="slider-btn-list">
+    <button type="button" class="slider-btn {{ prevClass }}">
+        <svg class="slider-btn__icon" aria-hidden="true">
+            <use href="/assets/icons/sprite.svg?v={{ version }}#chevron-left"></use>
+        </svg>
+    </button>
+    <button type="button" class="slider-btn {{ nextClass }}">
+        <svg class="slider-btn__icon" aria-hidden="true">
+            <use href="/assets/icons/sprite.svg?v={{ version }}#chevron-left"></use>
+        </svg>
+    </button>
+</div>
+{% endmacro %}

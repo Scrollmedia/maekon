@@ -1,0 +1,29 @@
+{% from "entities/breadcrumbs.njk" import breadcrumbs %}
+{% from "shared/button.njk" import button %}
+
+{% macro heroStatic(image, title, breadcrumbsItems, buttonLabel, isArticle=false, date='', month='', isWhite=false) %}
+    <section class="hero-static{% if isWhite %} hero-static--white{% endif %}">
+        <img class="hero-static__bg" src="{{ image }}" alt="{{ title }}">
+
+        <div class="hero-static__container container mx-auto">
+            {{ breadcrumbs(breadcrumbsItems) }}
+
+            {% if not isArticle %}
+                <h1 class="hero-static__title">{{ title }}</h1>
+            {% else %}
+                <div class="hero-static__title hero-static__title--article">{{ title }}</div>
+            {% endif %}
+
+            {% if date and month %}
+                <div class="hero-static__date">
+                    <span class="hero-static__date-day">{{ date }}</span>
+                    <span class="hero-static__date-month">{{ month }}</span>
+                </div>
+            {% endif %}
+
+            {% if buttonLabel %}
+                {{ button(label=buttonLabel, size='lg', href='#', className='hero-static__btn') }}
+            {% endif %}
+        </div>
+    </section>
+{% endmacro %}

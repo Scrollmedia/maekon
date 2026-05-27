@@ -1,0 +1,70 @@
+.slider-info-card {
+    @apply relative flex gap-39 min-h-[--spacing(800/4)];
+    @apply max-3xl:p-10 max-3xl:bg-black-adaptive-5% max-3xl:rounded-card;
+    @apply max-xl:p-7.5;
+    @apply max-lg:pb-35;
+    @apply max-md:p-5 max-md:pb-32.5;
+    @apply max-3xl:gap-29 max-3xl:min-h-[--spacing(680/4)];
+    @apply max-xl:gap-17.5 max-xl:min-h-[--spacing(500/4)];
+    @apply max-lg:flex-col max-lg:gap-12.5 max-lg:min-h-auto;
+}
+
+.slider-info-card__image-wrapper {
+    @apply shrink-0 p-12.5 w-1/2 h-[--spacing(800/4)] bg-card rounded-card;
+    @apply max-3xl:h-[--spacing(680/4)];
+    @apply max-xl:h-[--spacing(500/4)];
+    @apply max-lg:p-4 max-lg:w-full max-lg:h-[--spacing(300/4)];
+    @apply max-md:h-[--spacing(360/4)];
+}
+
+.slider-info-card__image {
+    @apply w-full h-full object-contain;
+}
+
+.slider-info-card__content {
+    @apply flex flex-col gap-7.5 pt-12.5 pb-44;
+    @apply max-3xl:pt-5;
+    @apply lg:max-xl:max-h-[--spacing(340/4)] max-lg:max-h-none;
+    @apply max-xl:pb-0 max-xl:gap-5;
+    @apply max-lg:pt-0;
+
+    &.is-overflow {
+        @apply max-3xl:overflow-y-auto max-3xl:overflow-x-hidden max-3xl:[-webkit-overflow-scrolling:touch];
+    }
+
+    &.is-overflow.fade-scroll--start {
+        @apply max-3xl:mask-[linear-gradient(to_bottom,black_55%,transparent_100%)];
+        @apply max-3xl:mask-size-[100%_100%] max-3xl:mask-no-repeat;
+    }
+
+    &.is-overflow.fade-scroll--end {
+        @apply max-3xl:mask-[linear-gradient(to_bottom,transparent_0%,black_45%)];
+        @apply max-3xl:mask-size-[100%_100%] max-3xl:mask-no-repeat;
+    }
+
+    &.is-overflow.fade-scroll--mid {
+        @apply max-3xl:mask-[linear-gradient(to_bottom,transparent_0%,black_14%,black_86%,transparent_100%)];
+        @apply max-3xl:mask-size-[100%_100%] max-3xl:mask-no-repeat;
+    }
+}
+
+.slider-info-card__title {
+    @apply heading text-h4;
+    @apply max-3xl:text-[length:--spacing(48/4)];
+    @apply max-xl:text-[length:--spacing(40/4)];
+}
+
+.slider-info-card__title-highlight {
+    @apply text-accent-500 leading-inherit;
+}
+
+.slider-info-card__description {
+    @apply text-2xl font-medium leading-normal;
+    @apply max-3xl:text-[length:--spacing(20/4)];
+    @apply max-xl:text-[length:--spacing(18/4)];
+    @apply max-lg:text-[length:--spacing(16/4)];
+}
+
+.slider-info-card__description-sm {
+    @apply leading-normal;
+}

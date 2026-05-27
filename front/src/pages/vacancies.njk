@@ -1,0 +1,115 @@
+{% from "section/hero-static.njk" import heroStatic %}
+{% from "shared/button.njk" import button %}
+{% from "entities/accordion.njk" import accordion %}
+
+{% extends "layout/default.njk" %}
+
+{% block content %}
+    {% include "widgets/header.njk" %}
+
+    <main>
+        {{ heroStatic(
+            image='/assets/images/bg/vacancies.webp',
+            title='вакансии',
+            breadcrumbsItems=[
+                { title: 'Главная', url: '#' },
+                { title: 'Вакансии', url: '#' }
+            ],
+            buttonLabel='отправить резюме'
+        ) }}
+
+        <section class="vacancies" data-card-reveal-group>
+            <div class="vacancies__container container mx-auto">
+                <div class="vacancies__header">
+                    <h2 class="vacancies__title">Конпания "МАЕКОН" занимается проектированием и производством технологического оборудования с 2016 года.</h2>
+                    <p class="vacancies__description">
+                        Основным направлением является изготовление термического оборудования для разных областей применения.
+                    </p>
+                </div>
+
+                <div class="vacancies__list">
+                    {% set vacanciesAccordionContent %}
+                        <div class="vacancies__accordion-content">
+                            <div class="vacancies__accordion-grid">
+                                <div class="vacancies__accordion-block">
+                                    <div class="vacancies__accordion-title">Требования к кандидату</div>
+                                    <ul class="vacancies__accordion-list">
+                                        <li class="vacancies__accordion-list-item">
+                                            3-4 группа по электробезопасности
+                                        </li>
+                                        <li class="vacancies__accordion-list-item">
+                                            опыт работы не менее 2х лет
+                                        </li>
+                                        <li class="vacancies__accordion-list-item">
+                                            среднее специальное образование
+                                        </li>
+                                        <li class="vacancies__accordion-list-item">
+                                            4-6 разряд
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="vacancies__accordion-block">
+                                    <div class="vacancies__accordion-title">Мы предлагаем</div>
+                                    <ul class="vacancies__accordion-list">
+                                        <li class="vacancies__accordion-list-item">
+                                            от <b>2 200 Br</b> за месяц, на руки
+                                        </li>
+                                        <li class="vacancies__accordion-list-item">
+                                            Полная занятость
+                                        </li>
+                                        <li class="vacancies__accordion-list-item">
+                                            Рабочие часы: 12
+                                        </li>
+                                        <li class="vacancies__accordion-list-item">
+                                            График: 2/2
+                                        </li>
+                                        <li class="vacancies__accordion-list-item">
+                                            Формат работы: на месте работодателя
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            {{ button(label="отправить резюме", className="vacancies__accordion-btn") }}
+                        </div>
+                    {% endset %}
+
+                    {{ accordion(
+                        title="Рабочий заготовительного участка",
+                        content=vacanciesAccordionContent
+                    ) }}
+                    {{ accordion(
+                        title="Рабочий заготовительного участка",
+                        content=vacanciesAccordionContent
+                    ) }}
+                    {{ accordion(
+                        title="Рабочий заготовительного участка",
+                        content=vacanciesAccordionContent
+                    ) }}
+                    {{ accordion(
+                        title="Рабочий заготовительного участка",
+                        content=vacanciesAccordionContent
+                    ) }}
+                    {{ accordion(
+                        title="Рабочий заготовительного участка",
+                        content=vacanciesAccordionContent
+                    ) }}
+                </div>
+
+                <div class="vacancies__message" data-card-reveal-item>
+                    <div class="vacancies__message-icon">
+                        <svg class="vacancies__message-icon-svg" aria-hidden="true">
+                            <use href="/assets/icons/sprite.svg?v={{ version }}#exclamation"></use>
+                        </svg>
+                    </div>
+                    <div class="vacancies__message-content">
+                        <div class="vacancies__message-title">Если вас заинтересовала вакансия, отправьте ваше резюме на почту: </div>
+                        <a href="mailto:hr@maekon.by" class="vacancies__message-link">hr@maekon.by</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    {% include "widgets/footer.njk" %}
+{% endblock %}

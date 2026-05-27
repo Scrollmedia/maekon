@@ -1,0 +1,16 @@
+{% macro digitRoll(digits, prefix='', suffix='', className='') %}
+    <span class="sr-only">{% if prefix %}{{ prefix }} {% endif %}{{ digits }}{{ suffix }}</span>
+    <span
+        class="digit-roll{% if className %} {{ className }}{% endif %}"
+        data-digit-roll
+        data-value="{{ digits }}"
+        aria-hidden="true">
+        {% if prefix %}
+            <span class="digit-roll__prefix">{{ prefix }}</span>
+        {% endif %}
+        <span class="digit-roll__value" data-digit-roll-value>0</span>
+        {% if suffix %}
+            <span class="digit-roll__suffix">{{ suffix }}</span>
+        {% endif %}
+    </span>
+{% endmacro %}

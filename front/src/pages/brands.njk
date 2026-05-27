@@ -1,0 +1,30 @@
+{% from "section/hero-static.njk" import heroStatic %}
+{% from "entities/card/direction.njk" import directionCard %}
+
+{% extends "layout/default.njk" %}
+
+{% block content %}
+    {% include "widgets/header.njk" %}
+
+    <main>
+        {{ heroStatic(
+            image='/assets/images/bg/default.webp',
+            title='Бренды',
+            breadcrumbsItems=[
+                { title: 'Главная', url: '#' },
+                { title: 'Бренды', url: '#' }
+            ]
+        ) }}
+
+        <section>
+            <div class="container mx-auto">
+                <div class="section-list" data-card-reveal-group>
+                    {{ directionCard() }}
+                    {{ directionCard() }}
+                </div>
+            </div>
+        </section>
+    </main>
+
+    {% include "widgets/footer.njk" %}
+{% endblock %}

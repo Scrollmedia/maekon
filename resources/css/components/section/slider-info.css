@@ -1,0 +1,20 @@
+.slider-info {
+    @apply relative 3xl:bg-black-adaptive-5% rounded-card;
+}
+
+.slider-info__container {
+    @apply 3xl:py-12.5;
+    @apply max-lg:relative;
+}
+
+.slider-info__actions {
+    @apply absolute bottom-12.5 left-[calc(50%+var(--spacing)*39)] z-2 flex items-center p-7.5 gap-7.5 bg-black-adaptive-5% rounded-card-sm;
+    @apply max-3xl:bottom-[--spacing(78/4)] max-3xl:left-[calc(50%+var(--spacing)*29)] max-3xl:p-5;
+    @apply max-xl:bottom-[--spacing(30/4)] max-xl:left-[calc(50%+var(--spacing)*17.5)] max-xl:p-2.5;
+    @apply max-lg:bottom-7.5 max-lg:left-[calc(var(--container-offset-sm)+30px)] max-lg:inline-flex max-lg:mt-7.5;
+    @apply max-md:bottom-5 max-md:right-[calc(var(--container-offset-sm)+20px)] max-md:left-[calc(var(--container-offset-sm)+20px)] max-md:justify-between;
+
+    & .slider-counter {
+        @apply bg-white-adaptive-30%;
+    }
+}

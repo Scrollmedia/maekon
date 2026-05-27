@@ -1,0 +1,59 @@
+.section-header {
+    @apply flex items-end justify-between gap-12;
+    @apply max-md:flex-wrap max-md:gap-2;
+
+    &  > .slider-counter {
+        @apply max-md:mb-2
+    }
+}
+
+.section-header--with-description {
+    @apply gap-5;
+    @apply max-xl:flex-col max-xl:items-start;
+
+    & .section-title {
+        @apply lg:w-2/3 xl:w-1/2 text-h4;
+        @apply max-3xl:text-5xl;
+        @apply max-lg:grow max-lg:text-[length:--spacing(40/4)];
+    }
+
+    & .section-description {
+        @apply pr-10 xl:w-1/2 text-2xl font-medium leading-normal;
+        @apply max-3xl:pr-1.25 max-3xl:text-xl;
+        @apply max-xl:pr-0 max-xl:text-base;
+    }
+}
+
+.section-header__actions {
+    @apply flex items-center gap-12.5 p-2.5 bg-black-adaptive-5% dark:bg-black-adaptive-10% rounded-card-sm;
+    @apply max-md:hidden;
+
+    & ~ .slider-counter {
+        @apply md:hidden;
+    }
+}
+
+.section-header__btn-all {
+    @apply max-3xl:py-3 max-3xl:min-h-20;
+    @apply max-xl:min-h-15;
+    @apply max-md:min-h-12.5;
+}
+
+.section-header__btn-all-wrapper {
+    @apply md:hidden mt-7.5 p-2.5 bg-black-adaptive-5% rounded-card-sm;
+}
+
+.section-title {
+    @apply heading text-h3;
+    @apply max-3xl:text-[length:--spacing(82/4)];
+    @apply max-xl:text-[length:--spacing(64/4)];
+    @apply max-md:text-[length:--spacing(48/4)];
+}
+
+.section-list {
+    @apply flex flex-col gap-12.5 py-25;
+    @apply max-3xl:gap-7.5 max-3xl:pt-[--spacing(60/4)] max-3xl:pb-[--spacing(80/4)];
+    @apply max-xl:gap-5 max-xl:pt-[--spacing(50/4)] max-xl:pb-[--spacing(70/4)];
+    @apply max-lg:gap-4 max-lg:pb-[--spacing(60/4)];
+    @apply max-md:gap-3 max-md:pt-[--spacing(30/4)];
+}

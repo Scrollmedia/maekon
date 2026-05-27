@@ -1,0 +1,36 @@
+{% macro button(label='Button', size='md', severity='primary', variant='', className='', href='', icon='', iconPosition='left', iconWithoutBg=false) %}
+
+{% set classes = [
+    'btn',
+    'btn--' + severity,
+    'btn--' + variant if variant,
+    'btn--' + size,
+    className if className
+] %}
+
+{% if href %}
+    <a href="{{ href }}" class="{{ classes | join(' ') }}">
+{% else %}
+    <button class="{{ classes | join(' ') }}">
+{% endif %}
+    {% if icon %}
+        <svg 
+            class="btn__icon{% if iconPosition == 'right' %} btn__icon--right{% endif %}{% if iconWithoutBg %} btn__icon--without-bg{% endif %}"
+            aria-hidden="true">
+            <use href="/assets/icons/sprite.svg?v={{ version }}#{{ icon }}"></use>
+        </svg>
+    {% endif %}
+
+        <div class="btn__label">
+            {% if caller %}
+                {{ caller() }}
+            {% else %}
+                {{ label }}
+            {% endif %}
+        </div>
+{% if href %}
+    </a>
+{% else %}
+    </button>
+{% endif %}
+{% endmacro %}

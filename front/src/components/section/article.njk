@@ -1,0 +1,34 @@
+{% from "shared/button.njk" import button %}
+{% from "entities/slider-btn-list.njk" import sliderBtnList %}
+{% from "entities/slider-counter.njk" import sliderCounter %}
+{% from "entities/card/article.njk" import articleCard %}
+
+<section class="article">
+    <div class="article__container container mx-auto">
+        <div class="section-header article__header">
+            <h3 class="section-title">Новости</h3>
+
+            <div class="section-header__actions">
+                {{ button(href="#", label="все новости", severity="secondary", className="section-header__btn-all") }}
+
+                {{ sliderBtnList(prevClass='article__slider-prev', nextClass='article__slider-next') }}
+            </div>
+
+            {{ sliderCounter(className='article__slider-counter') }}
+        </div>
+
+        <div class="swiper article__slider" data-card-reveal-group>
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">{{ articleCard(attrs="data-card-reveal-item") }}</div>
+                <div class="swiper-slide">{{ articleCard(attrs="data-card-reveal-item data-card-reveal-delay='0.1'") }}</div>
+                <div class="swiper-slide">{{ articleCard(attrs="data-card-reveal-item data-card-reveal-delay='0.2'") }}</div>
+                <div class="swiper-slide">{{ articleCard(attrs="data-card-reveal-item data-card-reveal-delay='0.3'") }}</div>
+                <div class="swiper-slide">{{ articleCard(attrs="data-card-reveal-item data-card-reveal-delay='0.4'") }}</div>
+            </div>
+        </div>
+
+        <div class="section-header__btn-all-wrapper">
+            {{ button(href="#", label="все новости", severity="secondary", className="section-header__btn-all") }}
+        </div>
+    </div>
+</section>

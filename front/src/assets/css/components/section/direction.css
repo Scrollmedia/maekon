@@ -1,0 +1,44 @@
+.direction {
+    @apply py-25 bg-card rounded-b-card overflow-hidden;
+    @apply max-3xl:py-20;
+    @apply max-lg:pt-15 max-lg:pb-[--spacing(71/4)];
+    @apply max-md:pt-12.5 max-md:pb-7.5;
+}
+
+.direction__header {
+    @apply mb-17.5 w-[calc(100%-104px)];
+    @apply max-3xl:w-[calc(100%-67px)];
+    @apply max-xl:mb-15 max-xl:w-[calc(100%-38px)];
+    @apply max-lg:mb-12.5 max-lg:w-full;
+    @apply max-md:mb-7.5;
+}
+
+.direction__block {
+    @apply relative;
+}
+
+/* Slider */
+.direction__slider {
+    @apply ml-0 w-[calc(100%-104px)];
+    @apply max-3xl:w-[calc(100%-67px)];
+    @apply max-xl:w-[calc(100%-38px)];
+    @apply max-lg:w-full;
+    overflow: initial;
+}
+
+.direction__slider-btn-next {
+    @apply cursor-pointer absolute top-1/2 -translate-y-1/2 right-8 z-1 flex items-center justify-center w-30 h-30 bg-white-adaptive-100% hover:bg-accent-500 active:bg-accent-600 hover:scale-116 rounded-full transition-all;
+    @apply max-3xl:right-2 max-3xl:size-25;
+    @apply max-xl:-right-3 max-xl:size-20;
+    @apply max-lg:-right-2.5 max-lg:translate-x-1/2 max-lg:size-15;
+    @apply max-md:hidden;
+}
+
+.direction__slider-btn-next-icon {
+    @apply -scale-x-100 w-4 fill-ctnt-1 transition-colors;
+    @apply max-3xl:w-3.5;
+}
+
+.direction__slider-btn-next:hover .direction__slider-btn-next-icon {
+    @apply fill-white;
+}

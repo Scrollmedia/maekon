@@ -1,0 +1,16 @@
+.specification-card {
+    @apply flex flex-col justify-between gap-7.5 p-12.5 min-h-110 bg-card rounded-card;
+    @apply max-3xl:p-7.5 max-3xl:min-h-100;
+    @apply max-xl:min-h-[--spacing(340/4)];
+    @apply max-lg:min-h-[--spacing(300/4)];
+    @apply max-md:p-5;
+}
+
+.specification-card__title {
+    @apply heading text-h4;
+}
+
+.specification-card__description {
+    @apply text-xl font-semibold leading-normal;
+    @apply max-3xl:text-base;
+}

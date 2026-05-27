@@ -1,0 +1,61 @@
+.slider-btn {
+    @apply cursor-pointer flex items-center justify-center size-15 bg-white-adaptive-50% dark:bg-white-adaptive-10% hover:bg-accent-500 active:bg-accent-600 hover:scale-116 backdrop-blur-[50px] rounded-full transition-all;
+    @apply max-xl:size-12.5;
+}
+
+.slider-btn__icon {
+    @apply w-2.5 transition-all fill-ctnt-1;
+}
+
+.slider-btn:hover .slider-btn__icon {
+    @apply fill-white-adaptive-100%;
+}
+
+[class*='next'] > .slider-btn__icon {
+    @apply -scale-x-100;
+}
+
+.slider-btn-list {
+    @apply flex items-center gap-2.5;
+}
+
+.slider-btn--lg {
+    @apply size-25;
+    @apply max-xl:size-20;
+    @apply max-lg:size-15;
+}
+
+.slider-btn--lg .slider-btn__icon {
+    @apply w-4.5;
+    @apply max-xl:w-3.5;
+    @apply max-lg:w-3;
+}
+
+.slider-btn--md-custom {
+    @apply max-xl:size-15;
+}
+/* Counter */
+.slider-counter {
+    @apply flex items-center gap-3.5 px-7.5 h-21 text-2xl font-semibold leading-none bg-black-adaptive-5% backdrop-blur-2xl rounded-card-sm;
+    @apply max-3xl:h-[--spacing(70/4)];
+    @apply max-xl:h-[--spacing(60/4)] max-xl:text-xl;
+    @apply max-md:px-3 max-md:h-[--spacing(38/4)] max-md:text-sm;
+}
+
+.slider-counter--custom-adaptive {
+    @apply max-md:px-5 max-3xl:h-[--spacing(56/4)];
+    @apply max-xl:text-base max-xl:h-[--spacing(56/4)];
+    @apply max-md:h-[--spacing(56/4)];
+}
+
+.slider-counter__current {
+    @apply text-accent-500;
+}
+
+.slider-counter__divider {
+    @apply text-ctnt-1/20;
+}
+
+.slider-counter__total {
+    @apply text-ctnt-1;
+}

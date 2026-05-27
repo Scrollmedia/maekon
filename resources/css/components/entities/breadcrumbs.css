@@ -1,0 +1,20 @@
+.breadcrumbs {
+    @apply flex flex-wrap items-center gap-4;
+    @apply max-md:gap-3;
+}
+
+.breadcrumbs__item {
+    @apply max-md:text-sm;
+
+    &:first-child {
+        @apply font-semibold;
+    }
+
+    &:not(:first-child) {
+        @apply flex items-center before:content-[''] before:block before:mr-4 before:w-1.25 before:h-1.25 before:bg-accent-500 before:rounded-full;
+    }
+}
+
+a.breadcrumbs__item {
+    @apply hover:text-accent-500;
+}

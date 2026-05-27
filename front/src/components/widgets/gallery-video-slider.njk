@@ -1,0 +1,18 @@
+{% from "entities/card/gallery-video.njk" import galleryVideoCard %}
+
+<div class="swiper gallery-video-slider" data-card-reveal-group>
+    <div class="swiper-wrapper">
+        <div class="swiper-slide" data-card-reveal-item>
+            {{ galleryVideoCard() }}
+        </div>
+        <div class="swiper-slide" data-card-reveal-item data-card-reveal-delay="0.1">
+            {{ galleryVideoCard('t5qTGu-Ipc8') }}
+        </div>
+        <div class="swiper-slide" data-card-reveal-item data-card-reveal-delay="0.2">
+            {{ galleryVideoCard('cJSoUUYI8pI') }}
+        </div>
+        <div class="swiper-slide" data-card-reveal-item data-card-reveal-delay="0.3">
+            {{ galleryVideoCard('kq3qgXfi9yM') }}
+        </div>
+    </div>
+</div>

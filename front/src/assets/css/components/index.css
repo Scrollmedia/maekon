@@ -1,0 +1,66 @@
+@layer components {
+    /* Shared */
+    @import './shared/button.css';
+    @import './shared/slider.css';
+    @import './shared/theme-switcher.css';
+    @import './shared/lang-switcher.css';
+    @import './shared/heading-reveal.css';
+    @import './shared/text-line-reveal.css';
+    @import './shared/page-load-reveal.css';
+
+    /* Entities */
+    @import './entities/breadcrumbs.css';
+    @import './entities/accordion.css';
+    @import './entities/pagination.css';
+    @import './entities/digit-roll.css';
+
+    @import './entities/card/direction.css';
+    @import './entities/card/brand.css';
+    @import './entities/card/article.css';
+    @import './entities/card/hero.css';
+    @import './entities/card/partner.css';
+    @import './entities/card/quality.css';
+    @import './entities/card/direction2.css';
+    @import './entities/card/text.css';
+    @import './entities/card/slider-center.css';
+    @import './entities/card/slider-info.css';
+    @import './entities/card/specification.css';
+    @import './entities/card/gallery-video.css';
+    @import './entities/card/doc.css';
+
+    /* Widgets */
+    @import './widgets/header.css';
+    @import './widgets/footer.css';
+    @import './widgets/slider-center.css';
+    @import './widgets/specification-list.css';
+    @import './widgets/gallery-video-slider.css';
+    @import './widgets/tech-specs.css';
+    @import './widgets/doc-list.css';
+
+    /* Sections */
+    @import './section/vertical-paginated.css';
+
+    @import './section/404.css';
+    @import './section/article.css';
+    @import './section/about.css';
+    @import './section/hero.css';
+    @import './section/hero-static.css';
+    @import './section/section.css';
+    @import './section/partner.css';
+    @import './section/brand.css';
+    @import './section/quality.css';
+    @import './section/direction.css';
+    @import './section/text-slider.css';
+    @import './section/slider-info.css';
+    @import './section/specification.css';
+    @import './section/specs-info.css';
+    @import './section/vacancies-info.css';
+    @import './section/advantages.css';
+
+    /* Pages */
+    @import './pages/article.css';
+    @import './pages/vacancies.css';
+    @import './pages/about.css';
+    @import './pages/contacts.css';
+    @import './pages/article-detail.css';
+}

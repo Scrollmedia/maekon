@@ -1,0 +1,22 @@
+{% macro accordion(title, content) %}
+    <div class="accordion" data-card-reveal-item>
+        <div class="accordion__header">
+            <div class="accordion__title">{{ title }}</div>
+            <button class="accordion__toggle">
+                <svg class="accordion__toggle-icon" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect class="accordion__toggle-icon-hidding" x="18" width="6" height="6" rx="3" />
+                    <rect x="18" y="18" width="6" height="6" rx="3" />
+                    <rect class="accordion__toggle-icon-hidding" x="18" y="36" width="6" height="6" rx="3" />
+                    <rect x="42" y="18" width="6" height="6" rx="3" transform="rotate(90 42 18)" />
+                    <rect x="24" y="18" width="6" height="6" rx="3" transform="rotate(90 24 18)" />
+                    <rect x="6" y="18" width="6" height="6" rx="3" transform="rotate(90 6 18)" />
+                </svg>
+            </button>
+        </div>
+        <div class="accordion__content">
+            <div class="accordion__content-inner">
+                {{ content }}
+            </div>
+        </div>
+    </div>
+{% endmacro %}

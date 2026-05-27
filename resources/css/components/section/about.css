@@ -1,0 +1,88 @@
+.about {
+    @apply py-12.5;
+}
+
+.about__grid {
+    @apply grid grid-cols-[356px_1fr_356px] grid-rows-2 gap-5;
+    @apply max-3xl:grid-cols-[239px_1fr_239px];
+    @apply max-xl:grid-cols-[1fr_1fr];
+    @apply max-lg:gap-x-4;
+    @apply max-md:grid-cols-1;
+}
+
+.about__grid > .about__item:nth-of-type(1) {
+    @apply xl:col-span-1 xl:row-span-1;
+}
+
+.about__grid > .about__item:nth-of-type(2) {
+    @apply xl:col-start-3 xl:col-end-3 xl:row-span-1;
+}
+
+.about__grid > .about__item:nth-of-type(3) {
+    @apply xl:col-span-1 xl:row-span-2;
+}
+
+.about__grid > .about__item:nth-of-type(4) {
+    @apply xl:col-start-3 xl:col-end-3 xl:row-span-2;
+}
+
+.about__grid > .about__item-main {
+    @apply xl:col-start-2 xl:col-end-2 xl:row-start-1 xl:row-end-3;
+    @apply md:max-xl:col-span-2
+}
+
+/* Item */
+.about__item {
+    @apply flex flex-col p-12.5 h-110 bg-card rounded-card;
+    @apply max-3xl:p-7.5 max-3xl:h-85;
+    @apply max-xl:h-62.5;
+    @apply max-md:h-auto max-md:min-h-62.5;
+}
+
+.about__item-title {
+    @apply text-h4;
+    @apply max-3xl:text-5xl;
+    @apply max-lg:text-[length:--spacing(40/4)];
+}
+
+.about__item-title--small {
+    @apply text-5xl;
+    @apply max-3xl:text-[length:--spacing(40/4)];
+}
+
+.about__item-description {
+    @apply mt-auto text-xl font-semibold leading-normal;
+    @apply max-3xl:text-base;
+    @apply max-lg:text-[length:--spacing(15/4)];
+}
+
+/* Item main */
+.about__item-main {
+    @apply relative z-1 flex items-end bg-card rounded-card overflow-hidden;
+    @apply max-xl:h-[--spacing(600/4)];
+}
+
+.about__item-main-bg {
+    @apply absolute -z-1 top-0 left-0 w-full h-full object-cover;
+}
+
+.about__item-main-content {
+    @apply p-[97px_80px_80px_80px] w-full bg-white-adaptive-30% rounded-card backdrop-blur-[50px];
+    @apply max-3xl:p-10;
+    @apply max-md:px-7.5;
+}
+
+.about__item-main-title {
+    @apply text-h4;
+    @apply max-3xl:text-5xl;
+}
+
+.about__item-main-description {
+    @apply mt-7.5 text-2xl max-w-[734px];
+    @apply max-3xl:text-xl;
+    @apply max-md:text-base;
+}
+
+.about__item-main-btn {
+    @apply inline-flex mt-7.5;
+}

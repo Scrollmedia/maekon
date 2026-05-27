@@ -1,0 +1,92 @@
+{% set footerNavItems = [
+    { href: '#', label: 'Компания' },
+    { href: '#', label: 'Направления' },
+    { href: '#', label: 'Бренды' },
+    { href: '#', label: 'Сертификаты' },
+    { href: '#', label: 'Вакансии' },
+    { href: '#', label: 'Новости' }
+] %}
+
+<footer class="footer">
+    <div
+        class="footer__container container mx-auto"
+        data-card-reveal-group
+        data-card-reveal-start="top bottom">
+        <div class="footer__top" data-card-reveal-item>
+            <div class="footer__logo">
+                {% include "shared/logo.njk" %}
+            </div>
+            <div class="footer__top-right">
+                <div class="footer__contacts">
+                    <p class="footer__address">
+                        г. Минск,ул. Лещинского Ю.М., д.8, ком.&nbsp;402, административно-бытовой корпус №3, 4 этаж
+                    </p>
+                    <div class="footer__contacts-list">
+                        <a
+                            href="tel:+375173388001"
+                            class="footer__contacts-link">
+                            +375 17 33 88 001
+                        </a>
+                        <a
+                            href="mailto:info@maekon.by"
+                            class="footer__contacts-link">
+                            info@maekon.by
+                        </a>
+                    </div>
+                </div>
+                <div class="footer__social">
+                    <div class="footer__social-title">Мы в соцсетях</div>
+                    <div class="footer__social-links">
+                        <a
+                            href="#"
+                            class="footer__social-link">
+                            <svg
+                                class="footer__social-icon"
+                                aria-hidden="true">
+                                <use href="/assets/icons/sprite.svg?v={{ version }}#youtube"></use>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <nav class="footer__nav" data-card-reveal-item data-card-reveal-delay="0.08">
+            <ul class="footer__nav-list">
+                {% for item in footerNavItems %}
+                    <li class="footer__nav-item">
+                        <a
+                            href="{{ item.href }}"
+                            class="footer__nav-link"
+                            data-label="{{ item.label }}">
+                            <span class="footer__nav-link-text">{{ item.label }}</span>
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </nav>
+
+        <div class="footer__bottom" data-card-reveal-item data-card-reveal-delay="0.16">
+            <div class="footer__bottom-left">
+                <p class="footer__copyright">&copy; 2026 ООО&nbsp;«МАЕКОН». Все права защищены</p>
+                <div class="footer__bottom-links">
+                    <a
+                        href="#"
+                        class="footer__bottom-link">
+                        Сайт Технопарка
+                    </a>
+                    <a
+                        href="#"
+                        class="footer__bottom-link">
+                        Сайт Ассоциации технопарков
+                    </a>
+                </div>
+            </div>
+            <a
+                href="#"
+                class="footer__developer">
+                {% include "shared/logo-dev.njk" %}
+            </a>
+        </div>
+    </div>
+</footer>

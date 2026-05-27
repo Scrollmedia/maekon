@@ -1,0 +1,91 @@
+.btn {
+    @apply cursor-pointer relative flex items-center justify-center gap-3 border border-transparent rounded-btn transition-all select-none;
+
+    &:hover .btn__label {
+        @media (hover: hover) {
+            @apply before:scale-160;
+        }
+    }
+}
+
+.btn__label {
+    @apply flex items-center gap-5 before:content-[''] before:shrink-0 before:block before:w-2.5 before:h-2.5 before:bg-accent-500 before:rounded-full before:transition-all;
+}
+
+.btn__icon {
+    @apply shrink-0 p-2.5 w-9.5 h-10 rounded-card-xs transition-all;
+
+    & ~ .btn__label {
+        @apply pl-0 before:content-none;
+    }
+}
+
+.btn__icon--right {
+    @apply order-last;
+}
+
+.btn__icon--without-bg {
+    @apply bg-transparent!;
+}
+
+/* Severity */
+.btn--primary {
+    @apply bg-accent-500 hover:bg-accent-600 text-white;
+
+    & .btn__icon {
+        @apply fill-white bg-white-adaptive-20%;
+    }
+
+    &:hover .btn__icon {
+        @apply fill-accent-500 bg-white;
+    }
+}
+
+.btn--primary .btn__label {
+    @apply before:bg-black-adaptive-100%;
+}
+
+.btn--secondary {
+    @apply bg-white-adaptive-50% dark:bg-white-adaptive-10% hover:bg-white-adaptive-70% hover:dark:bg-white-adaptive-20% active:bg-white-adaptive-80% active:dark:bg-white-adaptive-30% text-ctnt-1;
+
+    & .btn__icon {
+        @apply fill-ctnt-1;
+    }
+}
+
+.btn--secondary .btn__label {
+    @apply before:bg-accent-500;
+}
+
+.btn--tertiary {
+    @apply text-ctnt-1/80 bg-black-adaptive-5% hover:bg-white-adaptive-25% active:bg-white-adaptive-35%;
+
+    & .btn__icon {
+        @apply fill-accent-500 bg-accent-500/10;
+    }
+}
+
+.btn--tertiary .btn__label {
+    @apply before:bg-accent-500;
+}
+
+/* Variant */
+
+/* Size */
+.btn--sm {
+    @apply px-5 py-4 min-h-20 text-xl font-medium;
+    @apply max-lg:px-2.5 max-lg:py-2.25 max-lg:min-h-[--spacing(60/4)] max-lg:text-sm;
+}
+
+.btn--md {
+    @apply p-7.5 min-h-22.5 text-sm font-bold uppercase;
+    @apply max-3xl:min-h-[--spacing(80/4)];
+    @apply max-xl:py-5 max-xl:min-h-[--spacing(60/4)];
+    @apply max-lg:px-5 max-lg:py-3 max-lg:min-h-[--spacing(50/4)];
+}
+
+.btn--lg {
+    @apply px-12.5 min-h-32 text-[28px] font-bold uppercase;
+    @apply max-3xl:px-[--spacing(40/4)] max-3xl:min-h-[--spacing(90/4)] max-3xl:text-[length:--spacing(24/4)];
+    @apply max-xl:gap-4 max-xl:px-[--spacing(30/4)] max-xl:min-h-[--spacing(66/4)] max-3xl:text-[length:--spacing(16/4)];
+}

@@ -1,0 +1,27 @@
+.brand-card {
+    @apply relative z-1 flex items-end justify-start p-5 w-full h-full;
+    @apply max-md:p-2.5;
+}
+
+.brand-card__bg {
+    @apply absolute top-0 left-0 -z-1 w-full h-full object-cover;
+}
+
+.brand-card__content {
+    @apply p-12.5 w-full max-w-[--spacing(744/4)] bg-white-adaptive-30% rounded-card-sm backdrop-blur-2xl;
+    @apply max-3xl:max-w-[--spacing(557/4)];
+    @apply max-xl:p-7.5 max-xl:max-w-[--spacing(517/4)];
+    @apply max-md:p-5 max-md:max-w-full;
+}
+
+.brand-card__title {
+    @apply text-h5;
+    @apply max-3xl:text-[length:--spacing(24/4)];
+    @apply max-md:text-xl;
+}
+
+.brand-card__description {
+    @apply mt-7.5 text-xl;
+    @apply max-3xl:text-base;
+    @apply max-md:mt-5 max-md:text-sm;
+}

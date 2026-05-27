@@ -1,0 +1,27 @@
+.article {
+    @apply -mb-4 pt-24 pb-25 bg-black-adaptive-5% rounded-t-card overflow-hidden;
+    @apply max-3xl:pt-15 max-3xl:pb-24;
+    @apply max-xl:pt-10 max-xl:pb-19;
+    @apply max-lg:pb-16.5;
+    @apply max-md:pt-7.5;
+}
+
+.article__container {
+    @apply px-(--container-offset-sm);
+}
+
+.article__header {
+    @apply mb-15;
+    @apply max-md:mb-7.5;
+}
+
+.article__slider {
+    @apply overflow-initial;
+
+    & .swiper-slide {
+        @apply max-3xl:w-[--spacing(459/4)];
+        @apply max-xl:w-[--spacing(412/4)];
+        @apply max-lg:w-[--spacing(336/4)];
+        @apply max-md:w-auto;
+    }
+}

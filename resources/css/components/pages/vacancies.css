@@ -1,0 +1,117 @@
+.vacancies__container {
+    @apply flex flex-col gap-[--spacing(76/4)] py-25 px-(--container-offset-sm);
+    @apply max-3xl:py-20;
+    @apply max-xl:gap-[--spacing(60/4)] max-xl:pb-[--spacing(70/4)];
+    @apply max-lg:py-[--spacing(60/4)];
+    @apply max-md:py-[--spacing(50/4)];
+}
+
+.vacancies__header {
+    @apply flex flex-col gap-7.5 max-w-[--spacing(1057/4)];
+    @apply max-3xl:max-w-[--spacing(937/4)];
+    @apply max-xl:max-w-[--spacing(844/4)];
+}
+
+.vacancies__title {
+    @apply text-h4;
+    @apply max-3xl:text-[length:--spacing(48/4)];
+    @apply max-xl:text-[length:--spacing(40/4)];
+    @apply max-md:text-[length:--spacing(32/4)];
+}
+
+.vacancies__description {
+    @apply text-2xl font-medium;
+    @apply max-xl:text-[length:--spacing(20/4)];
+    @apply max-md:text-[length:--spacing(16/4)];
+}
+
+.vacancies__list {
+    @apply flex flex-col gap-5;
+    @apply max-lg:gap-4;
+    @apply max-md:gap-3;
+}
+
+/* Accordion */
+.vacancies__accordion-content {
+    @apply flex flex-col items-start gap-10;
+    @apply max-3xl:gap-15;
+    @apply max-xl:gap-12.5;
+    @apply max-md:gap-7.5;
+}
+
+.vacancies__accordion-grid {
+    @apply grid md:grid-cols-2 gap-x-5 gap-y-6 w-full;
+}
+
+.vacancies__accordion-block {
+    @apply flex flex-col gap-7.5;
+    @apply max-xl:gap-5;
+    @apply max-md:gap-4;
+}
+
+.vacancies__accordion-title {
+    @apply text-h6 font-semibold leading-none;
+    @apply max-lg:text-[length:--spacing(20/4)];
+    @apply max-md:text-[length:--spacing(15/4)];
+}
+
+.vacancies__accordion-list {
+    @apply flex flex-col gap-5;
+    @apply max-xl:gap-3;
+    @apply max-md:gap-2;
+}
+
+.vacancies__accordion-list-item {
+    @apply relative pl-10.5 text-xl leading-normal;
+    @apply max-xl:text-[length:--spacing(16/4)];
+    @apply max-lg:pl-8 max-lg:text-[length:--spacing(15/4)];
+    @apply max-md:pl-4 max-md:text-[length:--spacing(14/4)];
+    @apply before:content-[''] before:absolute before:top-2 before:left-0 before:size-3 before:bg-accent-500 before:rounded-full;
+    @apply max-md:before:size-1.5;
+}
+
+.vacancies__accordion-btn {
+    @apply max-md:justify-start max-md:w-full;
+}
+
+/* Message */
+.vacancies__message {
+    @apply flex items-start gap-7.5 mt-6 mx-auto p-12.5 px-10.75 max-w-[1067px] bg-accent-500/10 rounded-card;
+    @apply max-3xl:mt-0 max-3xl:p-[--spacing(30/4)] max-3xl:pr-[--spacing(65/4)];
+    @apply max-xl:pr-[--spacing(39/4)] max-xl:pl-[--spacing(20/4)] max-lg:rounded-2xl;
+    @apply max-lg:-mt-2.5 max-lg:p-5;
+    @apply max-md:gap-5;
+    @apply mb-25;
+    @apply max-3xl:mb-20;
+    @apply max-xl:mb-[--spacing(70/4)];
+    @apply max-lg:mb-[--spacing(60/4)];
+    @apply max-md:mb-[--spacing(50/4)];
+    @apply mx-(--container-offset-sm);
+    @apply  xl:mx-auto;
+}
+
+.vacancies__message-icon {
+    @apply shrink-0 flex items-center justify-center size-20 bg-white/50 rounded-card-sm;
+    @apply max-md:size-12.5;
+}
+
+.vacancies__message-icon-svg {
+    @apply w-4.5 fill-accent-500;
+    @apply max-md:w-2.5;
+}
+
+.vacancies__message-title {
+    @apply text-[length:--spacing(32/4)];
+    @apply max-3xl:text-[length:--spacing(24/4)];
+    @apply max-xl:text-[length:--spacing(20/4)];
+    @apply max-lg:text-[length:--spacing(16/4)];
+    @apply max-md:text-[length:--spacing(14/4)];
+}
+
+.vacancies__message a {
+    @apply block mt-7.5 text-4xl font-medium leading-none hover:text-accent-500;
+    @apply max-3xl:text-[length:--spacing(32/4)];
+    @apply max-xl:mt-5 max-xl:text-[length:--spacing(24/4)];
+    @apply max-lg:text-[length:--spacing(20/4)];
+    @apply max-md:mt-4 max-md:text-[length:--spacing(16/4)];
+}

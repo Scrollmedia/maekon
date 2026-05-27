@@ -1,0 +1,55 @@
+.vertical-paginated-container {
+    @apply flex gap-5;
+    @apply max-lg:flex-col;
+}
+
+/* Slider: без свайпа, но вертикальный жест — прокрутка страницы (не touch-action: none от Swiper) */
+.vertical-paginated-slider {
+    @apply w-full h-[--spacing(900/4)] rounded-card;
+    @apply max-3xl:h-[--spacing(700/4)];
+    @apply max-xl:h-[--spacing(600/4)];
+    @apply max-lg:h-[--spacing(400/4)];
+    touch-action: pan-y;
+}
+
+.vertical-paginated-slider .swiper-wrapper,
+.vertical-paginated-slider .swiper-slide {
+    touch-action: pan-y;
+}
+
+.vertical-paginated-pagination {
+    @apply mt-auto pt-8 flex flex-col gap-2.5;
+    @apply max-lg:mt-[--spacing(74/4)];
+    @apply max-md:mt-10;
+}
+
+.vertical-paginated-pagination__item {
+    @apply cursor-pointer py-7.5 px-5 text-left text-xl font-medium leading-none text-ctnt-1/80 bg-black-adaptive-5% hover:bg-accent-500/10 active:bg-accent-500/20 rounded-card-sm transition-colors;
+    @apply max-3xl:py-5 max-3xl:text-base;
+    @apply max-xl:py-4 max-xl:px-3;
+}
+
+.vertical-paginated-pagination__item.active {
+    @apply cursor-default text-white bg-accent-500;
+}
+
+/* Info */
+.vertical-paginated-info {
+    @apply shrink-0 flex flex-col pt-7.5 px-5 pb-5 w-[--spacing(356/4)] max-w-full bg-card rounded-card;
+    @apply max-3xl:w-[--spacing(238/4)];
+    @apply max-xl:w-[--spacing(244/4)];
+    @apply max-lg:-order-1 max-lg:w-full;
+}
+
+.vertical-paginated-info__title {
+    @apply heading text-h4;
+    @apply max-3xl:text-[length:--spacing(48/4)];
+
+    & br {
+        @apply md:max-lg:hidden;
+    }
+}
+
+.vertical-paginated-info__description {
+    @apply mt-12.5;
+}

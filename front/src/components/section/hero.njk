@@ -1,0 +1,19 @@
+{% from "entities/card/hero.njk" import heroCard %}
+{% from "entities/slider-btn-list.njk" import sliderBtnList %}
+
+<section class="hero">
+    <div class="swiper hero__slider">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">{{ heroCard() }}</div>
+            <div class="swiper-slide">{{ heroCard() }}</div>
+            <div class="swiper-slide">{{ heroCard() }}</div>
+            <div class="swiper-slide">{{ heroCard() }}</div>
+        </div>
+    </div>
+
+    <div class="hero__slider-actions container mx-auto">
+        <div class="hero__slider-pagination"></div>
+
+        {{ sliderBtnList(prevClass='hero__slider-prev', nextClass='hero__slider-next') }}
+    </div>
+</section>

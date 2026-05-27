@@ -1,0 +1,71 @@
+.accordion {
+    @apply relative flex flex-col bg-card rounded-card-sm transition-colors;
+
+    &:not(.active) {
+        @apply hover:bg-white-adaptive-70%
+    }
+}
+
+.accordion.active {
+    @apply bg-black-adaptive-5% rounded-[--spacing(18/4)];
+    @apply max-lg:rounded-[--spacing(16/4)];
+    @apply max-md:rounded-[--spacing(12/4)];
+}
+
+.accordion__header {
+    @apply cursor-pointer flex items-center justify-between p-2.5 pl-12.5 min-h-33.5;
+    @apply max-3xl:pr-[--spacing(16/4)] max-3xl:pl-[--spacing(30/4)] max-3xl:min-h-[--spacing(100/4)];
+    @apply max-xl:pr-[--spacing(10/4)];
+    @apply max-lg:min-h-[--spacing(80/4)];
+    @apply max-md:pl-[--spacing(20/4)] max-md:min-h-[--spacing(68/4)];
+}
+
+.accordion__title {
+    @apply text-[length:--spacing(40/4)] font-bold leading-none;
+    @apply max-3xl:text-[length:--spacing(32/4)];
+    @apply max-lg:text-[length:--spacing(24/4)];
+    @apply max-md:text-[length:--spacing(16/4)] max-md:leading-[1.2];
+}
+
+.accordion__toggle {
+    @apply cursor-pointer shrink-0 relative flex items-center justify-center w-20 h-28.5 bg-black-adaptive-10% hover:bg-black-adaptive-20% active:bg-black-adaptive-100% rounded-[--spacing(8/4)] transition-colors;
+    @apply max-3xl:w-15 max-3xl:h-20;
+    @apply max-lg:w-10 max-lg:h-15;
+    @apply max-md:w-7.5 max-md:h-12 max-md:rounded-[--spacing(6/4)];
+
+    &[aria-expanded='true'] {
+        @apply bg-black-adaptive-100% hover:bg-black-adaptive-20% active:bg-black-adaptive-100%;
+
+        & .accordion__toggle-icon {
+            @apply fill-white-adaptive-100%;
+        }
+
+        & .accordion__toggle-icon-hidding {
+            @apply opacity-0;
+        }
+    }
+}
+
+.accordion__toggle-icon {
+    @apply size-10.5 fill-ctnt-1 transition-all;
+    @apply max-3xl:size-8;
+    @apply max-lg:size-5;
+    @apply max-md:size-3.5;
+}
+
+.accordion__toggle-icon-hidding {
+    @apply transition-all;
+}
+
+.accordion__content {
+    overflow: hidden;
+    will-change: height;
+}
+
+.accordion__content-inner {
+    @apply pr-27 pb-11 pl-12.5;
+    @apply max-3xl:pt-[--spacing(5/4)] max-3xl:pr-[--spacing(67/4)] max-3xl:pb-[--spacing(44/4)] max-3xl:pl-[--spacing(30/4)];
+    @apply max-xl:pr-[--spacing(100/4)] max-xl:pb-[--spacing(46/4)];
+    @apply max-lg:pr-[--spacing(10/4)] max-lg:pb-[--spacing(32/4)];
+    @apply max-md:pt-5 max-md:pr-[--spacing(20/4)] max-md:pb-[--spacing(22/4)] max-md:pl-[--spacing(20/4)];
+}

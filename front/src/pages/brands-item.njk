@@ -1,0 +1,25 @@
+{% from "section/hero-static.njk" import heroStatic %}
+
+{% extends "layout/default.njk" %}
+
+{% block content %}
+    {% include "widgets/header.njk" %}
+
+    <main>
+        {{ heroStatic(
+            image='/assets/images/bg/default.webp',
+            title='Maetherm',
+            breadcrumbsItems=[
+                { title: 'Главная', url: '#' },
+                { title: 'Бренды', url: '#' },
+                { title: 'Maetherm', url: '#' }
+            ]
+        ) }}
+
+        {% include "section/text-slider.njk" %}
+        {% include "section/slider-info.njk" %}
+        {% include "section/specification.njk" %}
+    </main>
+
+    {% include "widgets/footer.njk" %}
+{% endblock %}

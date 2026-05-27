@@ -1,0 +1,137 @@
+{% from "section/hero-static.njk" import heroStatic %}
+{% from "entities/card/direction.njk" import directionCard %}
+{% from "shared/button.njk" import button %}
+
+{% extends "layout/default.njk" %}
+
+{% block content %}
+    {% include "widgets/header.njk" %}
+
+    <main>
+        {{ heroStatic(
+            image='/assets/images/bg/contacts.webp',
+            title='Контакты',
+            breadcrumbsItems=[
+                { title: 'Главная', url: '#' },
+                { title: 'Контакты', url: '#' }
+            ]
+        ) }}
+
+        <section class="contacts" data-card-reveal-group>
+            <div class="contacts__container container mx-auto">
+                <div class="contacts__grid">
+                    <div class="contacts__item contacts__item--map-sm" data-card-reveal-item>
+                        <img src="/assets/images/map.webp" alt="Как проехать на склад">
+                    </div>
+
+                    <div class="contacts__item" data-card-reveal-item>
+                        <div class="contacts__item-content">
+                            <div class="contacts__item-block md:max-lg:col-span-2">
+                                <h5 class="contacts__item-block-title">адрес</h5>
+                                <div class="contacts__item-block-content">
+                                    <p class="contacts__item-address" data-line-reveal><span>Офис:</span> г. Минск, пр. Партизанский, 8к2</p>
+                                    <p class="contacts__item-address" data-line-reveal><span>Склад:</span> г. Минск, пр. Партизанский, 8к2</p>
+                                </div>
+                            </div>
+                            <div class="contacts__item-block">
+                                <h5 class="contacts__item-block-title">телефоны</h5>
+                                <div class="contacts__item-block-content">
+                                    <a href="tel:+375173388001" class="contacts__item-link" data-line-reveal><span>+375 17</span> 33 88 001</a>
+                                    <a href="tel:+375173388001" class="contacts__item-link" data-line-reveal><span>+375 17</span> 33 88 001</a>
+                                </div>
+                            </div>
+                            <div class="contacts__item-block">
+                                <h5 class="contacts__item-block-title">e-mail</h5>
+                                <div class="contacts__item-block-content">
+                                    <a href="mailto:info@maekon.by" class="contacts__item-link" data-line-reveal>info@maekon.by</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contacts__item" data-card-reveal-item>
+                        <h4 class="contacts__item-title">отдел продаж</h4>
+                        <div class="contacts__item-content">
+                            <div class="contacts__item-block">
+                                <h5 class="contacts__item-block-title">телефоны</h5>
+                                <div class="contacts__item-block-content">
+                                    <a href="tel:+375173388001" class="contacts__item-link" data-line-reveal><span>+375 17</span> 33 88 001</a>
+                                    <a href="tel:+375173388001" class="contacts__item-link" data-line-reveal><span>+375 17</span> 33 88 001</a>
+                                </div>
+                            </div>
+                            <div class="contacts__item-block">
+                                <h5 class="contacts__item-block-title">e-mail</h5>
+                                <div class="contacts__item-block-content">
+                                    <a href="mailto:info@maekon.by" class="contacts__item-link" data-line-reveal>info@maekon.by</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contacts__item" data-card-reveal-item>
+                        <h4 class="contacts__item-title">отдел снабжения</h4>
+                        <div class="contacts__item-content">
+                            <div class="contacts__item-block">
+                                <h5 class="contacts__item-block-title">телефоны</h5>
+                                <div class="contacts__item-block-content">
+                                    <a href="tel:+375173388001" class="contacts__item-link" data-line-reveal><span>+375 17</span> 33 88 001</a>
+                                    <a href="tel:+375173388001" class="contacts__item-link" data-line-reveal><span>+375 17</span> 33 88 001</a>
+                                </div>
+                            </div>
+                            <div class="contacts__item-block">
+                                <h5 class="contacts__item-block-title">e-mail</h5>
+                                <div class="contacts__item-block-content">
+                                    <a href="mailto:info@maekon.by" class="contacts__item-link" data-line-reveal>info@maekon.by</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contacts__item contacts__item--map" data-card-reveal-item>
+                        <h4 class="contacts__item-title">Как проехать<br/>на склад</h4>
+                        <div class="contacts__item-content">
+                            <div class="contacts__item-map">
+                                <img src="/assets/images/map--long.webp" alt="Как проехать на склад">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contacts__item contacts__item--requisites" data-card-reveal-item>
+                        <div class="contacts__requisites-grid">
+                            <div class="contacts__requisites-block">
+                                <h5 class="contacts__requisites-title">банковские реквизиты</h5>
+
+                                {{ button(label='Скачать', size='sm', href='#', icon='doc-list') }}
+                            </div>
+
+                            <div class="contacts__requisites-list">
+                                <div class="contacts__requisites-list-item">
+                                    <div class="contacts__requisites-list-item-property" data-line-reveal>Компания: </div>
+                                    <p class="contacts__requisites-list-item-value" data-line-reveal>ООО "МАЕКОН" </p>
+                                </div>
+                                <div class="contacts__requisites-list-item">
+                                    <div class="contacts__requisites-list-item-property"  data-line-reveal>УНП: </div>
+                                    <p class="contacts__requisites-list-item-value" data-line-reveal>192635331</p>
+                                </div>
+                                <div class="contacts__requisites-list-item">
+                                    <div class="contacts__requisites-list-item-property" data-line-reveal>Счет: </div>
+                                    <p class="contacts__requisites-list-item-value" data-line-reveal>BYPBSB651651561651651651</p>
+                                </div>
+                                <div class="contacts__requisites-list-item">
+                                    <div class="contacts__requisites-list-item-property" data-line-reveal>SWIFT: </div>
+                                    <p class="contacts__requisites-list-item-value" data-line-reveal>BYPBSBPY</p>
+                                </div>
+                                <div class="contacts__requisites-list-item">
+                                    <div class="contacts__requisites-list-item-property" data-line-reveal>Банк: </div>
+                                    <p class="contacts__requisites-list-item-value" data-line-reveal>BYPBSB651651561651651651</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    {% include "widgets/footer.njk" %}
+{% endblock %}

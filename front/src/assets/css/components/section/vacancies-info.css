@@ -1,0 +1,45 @@
+.vacancies-info__container {
+    @apply pt-12.5 pb-25;
+    @apply max-3xl:pt-10 max-3xl:pb-20;
+    @apply max-xl:pt-7.5 max-xl:pb-17.5;
+    @apply max-lg:pt-10 max-lg:pb-15;
+    @apply max-md:pt-7.5 max-md:pb-12.5;
+}
+
+.vacancies-info__card {
+    @apply relative flex p-5 h-175 rounded-card overflow-hidden;
+    @apply max-3xl:h-[--spacing(600/4)];
+    @apply max-xl:h-[--spacing(500/4)];
+    @apply max-lg:p-2.5 max-lg:h-[--spacing(400/4)];
+    @apply max-md:flex-col max-md:gap-2.5 max-md:p-0 max-md:h-auto max-md:rounded-none;
+}
+
+.vacancies-info__card-bg {
+    @apply absolute top-0 left-0 w-full h-full object-cover;
+    @apply max-md:static max-md:h-[--spacing(250/4)] max-md:rounded-2xl;
+}
+
+.vacancies-info__card-content {
+    @apply flex flex-col items-start gap-7.5 p-20 max-w-[--spacing(880/4)] bg-white-adaptive-30% backdrop-blur-[75px] rounded-card;
+    @apply max-3xl:py-15 max-3xl:pr-[--spacing(100/4)] max-3xl:pl-[--spacing(50/4)] max-3xl:max-w-[--spacing(602/4)];
+    @apply max-xl:pt-[--spacing(54/4)] max-xl:pr-[--spacing(51/4)] max-xl:pl-[--spacing(60/4)] max-xl:max-w-[--spacing(404/4)];
+    @apply max-lg:p-10 max-lg:gap-5 max-lg:max-w-[--spacing(356/4)];
+    @apply max-md:py-7.5 max-md:px-5 max-md:max-w-full max-md:min-h-[--spacing(360/4)];
+}
+
+.vacancies-info__card-title {
+    @apply heading text-h3;
+    @apply max-xl:text-[length:--spacing(64/4)];
+    @apply max-md:text-[length:--spacing(48/4)];
+}
+
+.vacancies-info__card-description {
+    @apply text-2xl font-medium;
+    @apply max-3xl:text-[length:--spacing(20/4)];
+    @apply max-xl:text-[length:--spacing(16/4)];
+}
+
+.vacancies-info__card-btn {
+    @apply mt-auto;
+    @apply max-md:w-full;
+}

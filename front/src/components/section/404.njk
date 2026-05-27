@@ -1,0 +1,12 @@
+{% from "shared/button.njk" import button %}
+
+<section class="section-404">
+    <img class="section-404__bg" src="/assets/images/bg/default.webp" alt="404 bg">
+
+    <div class="section-404__container container mx-auto">
+        <h1 class="section-404__title">404</h1>
+        <p class="section-404__description" data-line-reveal>Страница недоступна или была удалена</p>
+
+        {{ button(label="на главную", className="section-404__btn") }}
+    </div>
+</section>

@@ -1,0 +1,25 @@
+{% from "entities/slider-btn-list.njk" import sliderBtnList %}
+{% from "entities/slider-counter.njk" import sliderCounter %}
+
+<div class="slider-info">
+    <div class="slider-info__container container mx-auto">
+        <div class="swiper slider-info__slider">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">{% include "entities/card/slider-info.njk" %}</div>
+                <div class="swiper-slide">{% include "entities/card/slider-info.njk" %}</div>
+                <div class="swiper-slide">{% include "entities/card/slider-info.njk" %}</div>
+                <div class="swiper-slide">{% include "entities/card/slider-info.njk" %}</div>
+                <div class="swiper-slide">{% include "entities/card/slider-info.njk" %}</div>
+                <div class="swiper-slide">{% include "entities/card/slider-info.njk" %}</div>
+                <div class="swiper-slide">{% include "entities/card/slider-info.njk" %}</div>
+                <div class="swiper-slide">{% include "entities/card/slider-info.njk" %}</div>
+            </div>
+        </div>
+
+        <div class="slider-info__actions">
+            {{ sliderCounter(className='slider-counter--custom-adaptive slider-info__slider-counter') }}
+
+            {{ sliderBtnList(prevClass='slider-btn--md-custom slider-info__slider-prev', nextClass='slider-btn--md-custom slider-info__slider-next') }}
+        </div>
+    </div>
+</div>

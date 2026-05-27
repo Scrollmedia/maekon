@@ -1,0 +1,7 @@
+.line-reveal__line {
+    @apply block overflow-hidden leading-inherit;
+}
+
+.line-reveal__line-inner {
+    @apply inline-block will-change-transform leading-inherit;
+}

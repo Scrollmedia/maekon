@@ -1,0 +1,68 @@
+.hero-static {
+    @apply relative z-1;
+}
+
+.hero-static__bg {
+    @apply absolute top-0 left-0 -z-1 w-full h-full object-cover rounded-b-card;
+    @apply max-md:rounded-b-2xl;
+}
+
+.hero-static__container {
+    @apply relative flex flex-col pt-[--spacing(180/4)] px-(--container-offset-sm) pb-[--spacing(92/4)] h-(--hero-height);
+    @apply max-3xl:pt-[--spacing(160/4)] max-3xl:pb-[--spacing(80/4)];
+    @apply max-xl:pt-[--spacing(140/4)];
+    @apply max-md:pt-[--spacing(110/4)] max-md:pb-[--spacing(60/4)];
+}
+
+.hero-static--white {
+    & .breadcrumbs__item,
+    & .hero-static__title {
+        @apply text-white;
+    }
+}
+
+.hero-static .breadcrumbs {
+    @apply -order-2;
+}
+
+.hero-static__title {
+    @apply heading mt-auto max-w-2/3 text-h1;
+    @apply max-3xl:text-[length:--spacing(96/4)];
+    @apply max-xl:text-[length:--spacing(64/4)];
+    @apply max-md:text-[length:--spacing(48/4)];
+}
+
+.hero-static__title--article {
+    @apply heading mb-4 text-h3 max-w-300;
+    @apply max-3xl:mb-0 max-3xl:max-w-[--spacing(973/4)];
+    @apply max-xl:max-w-[--spacing(729/4)] max-xl:text-[length:--spacing(64/4)];
+    @apply max-lg:mt-0;
+    @apply max-md:text-[length:--spacing(48/4)];
+}
+
+.hero-static__date {
+    @apply absolute right-6 bottom-27 flex flex-col items-end p-12.5 font-heading bg-white-adaptive-30% backdrop-blur-2xl rounded-card-sm;
+    @apply max-3xl:p-7.5;
+    @apply max-xl:p-5;
+    @apply max-lg:static max-lg:-order-1 max-lg:self-start max-lg:mt-auto max-lg:mb-12.5;
+}
+
+.hero-static__date-day {
+    @apply text-h3;
+    @apply max-3xl:text-[length:--spacing(64/4)];
+    @apply max-md:text-[length:--spacing(48/4)];
+}
+
+.hero-static__date-month {
+    @apply text-h5;
+    @apply max-3xl:text-[length:--spacing(32/4)];
+    @apply max-xl:text-[length:--spacing(24/4)];
+    @apply max-md:text-[length:--spacing(20/4)];
+}
+
+.hero-static__btn {
+    @apply absolute bottom-[--spacing(128/4)] right-6;
+    @apply max-3xl:bottom-[--spacing(104/4)] max-3xl:right-6;
+    @apply max-xl:bottom-[--spacing(96/4)];
+    @apply max-md:static max-md:mt-5 max-md:self-start;
+}

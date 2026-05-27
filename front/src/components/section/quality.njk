@@ -1,0 +1,25 @@
+{% from "shared/button.njk" import button %}
+{% from "entities/slider-btn-list.njk" import sliderBtnList %}
+
+<section class="quality vertical-paginated-section">
+    <div class="vertical-paginated-container container mx-auto" data-card-reveal-group>
+        <div class="vertical-paginated-info" data-card-reveal-item>
+            <h3 class="vertical-paginated-info__title">
+                Качество <br/>
+                и стандарты
+            </h3>
+
+            <div class="vertical-paginated-pagination" data-pagination="quality">
+            </div>
+        </div>
+
+        <div class="swiper vertical-paginated-slider" data-slider="quality" data-card-reveal-item>
+            <div class="swiper-wrapper">
+                <div class="swiper-slide" data-name="Соответствие ISO 9001">{% include "entities/card/quality.njk" %}</div>
+                <div class="swiper-slide" data-name="KPI сотрудников: ≤0,1% ошибок">{% include "entities/card/quality.njk" %}</div>
+                <div class="swiper-slide" data-name="Внешние и&nbsp;внутренние&nbsp;аудиты">{% include "entities/card/quality.njk" %}</div>
+                <div class="swiper-slide" data-name="Онлайн-контроль 24/7">{% include "entities/card/quality.njk" %}</div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,45 @@
+{% from "shared/button.njk" import button %}
+{% from "entities/digit-roll.njk" import digitRoll %}
+
+<section class="advantages">
+    <div class="advantages__container container mx-auto">
+        <div class="advantages__header">
+            <h4 class="advantages__header-title">
+                Конпания "МАЕКОН" занимается проектированием и производством технологического оборудования с 2016 года.
+            </h4>
+            <p class="advantages__header-description" data-line-reveal>
+                Основным направлением является изготовление термического оборудования для разных областей применения.
+            </p>
+        </div>
+
+        <div class="advantages__block">
+            <h3 class="advantages__block-title">ключевые преимущества:</h3>
+            <div class="advantages__grid" data-card-reveal-group>
+                <div class="advantages__item" data-card-reveal-item>
+                    <h4 class="advantages__item-title">РЕЗидент минского городского технопарка</h4>
+
+                    {{ button(label='Смотреть сертификат', severity='tertiary', size='sm', className='advantages__item-btn', icon='doc-list') }}
+                </div>
+                <div class="advantages__item" data-card-reveal-item data-card-reveal-delay="0.1">
+                    <h4 class="advantages__item-title">член ассоциации технопарков беларуси</h4>
+
+                    {{ button(label='Смотреть сертификат', severity='tertiary', size='sm', className='advantages__item-btn', icon='doc-list') }}
+                </div>
+                <div class="advantages__item" data-card-reveal-item data-card-reveal-delay="0.2">
+                    <h4 class="advantages__item-title advantages__item-title--lg">{{ digitRoll('25') }}</h4>
+                    <p class="advantages__item-description" data-line-reveal>
+                        Среди производителей
+                        <br />
+                        оборудования для термообработки
+                    </p>
+                </div>
+                <div class="advantages__item" data-card-reveal-item data-card-reveal-delay="0.3">
+                    <h4 class="advantages__item-title advantages__item-title--lg">{{ digitRoll('520', prefix='>') }}</h4>
+                    <p class="advantages__item-description" data-line-reveal>
+                        Более 520 клиентов и 25 стрран - география реализации продукции
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

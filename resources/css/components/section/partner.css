@@ -1,0 +1,19 @@
+.partner {
+    @apply pt-10 pb-20 overflow-hidden;
+    @apply max-xl:pt-7.5 max-xl:pb-15;
+    @apply max-md:pt-6.25 max-md:pb-12.5;
+}
+
+.partner__container {
+    @apply px-(--container-offset-sm);
+}
+
+.partner__header {
+    @apply mb-18;
+    @apply max-3xl:mb-12.5;
+    @apply max-md:mb-7.5;
+}
+
+.partner__slider {
+    @apply max-md:overflow-initial;
+}
