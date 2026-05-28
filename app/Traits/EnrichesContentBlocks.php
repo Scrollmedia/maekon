@@ -6,6 +6,7 @@ use App\Http\Resources\Portfolio\PortfolioMiniResource;
 use App\Http\Resources\Posts\PostMiniResource;
 use App\Http\Resources\Services\ServiceCategoryResource;
 use Awcodes\Curator\Models\Media as CuratorMedia;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 trait EnrichesContentBlocks
 {
@@ -33,7 +34,15 @@ trait EnrichesContentBlocks
             ];
 
             if ($otherData && isset($map[$type]) && isset($otherData[$type])) {
-                $data['items'] = $map[$type]($otherData[$type])->toArray();
+                   $dataSource = $otherData[$type];
+                   if ($dataSource instanceof LengthAwarePaginator) {
+                    $data['items'] = $map[$type]($dataSource->getCollection())->toArray();
+                    $data['links'] = $dataSource;   
+                } else {
+
+                    $data['items'] = $map[$type]($dataSource)->toArray();
+                    $data['links'] = null; 
+                }
             }
 
             // Заменяем все image_id на объекты медиа

@@ -30,6 +30,7 @@ class RouteResolverController
 
             
             return view('pages.main', [
+                'model_type' => $result->model_type,
                 'template' => $result->template,
                 'page' => $result->model,
                 'blocks' => $result->blocks,

@@ -128,7 +128,7 @@
                                 </ul>
                             </nav>
                         </div>
-                        <div class="lang-switcher">
+                        <div class="lang-switcher  notranslate">
                             <a href="?lang=ru" class="lang-switcher__current" data-lang-current> RU </a>
                             <div class="lang-switcher__dropdown">
                                 <a href="?lang=ru" class="lang-switcher__option" data-lang-option="ru"> RU </a>
@@ -333,6 +333,34 @@
         </div>
     </footer>
 @endif
+
+    <div id="google_translate_element" style="display: none !important;"></div>
+
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'ru', // Исходный язык сайта
+                includedLanguages: 'ru,en,be', // Поддерживаемые языки (be = белорусский)
+                autoDisplay: false
+            }, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <style>
+        .skiptranslate, 
+        .goog-te-banner-frame, 
+        #goog-gt-tt, 
+        .goog-te-balloon-frame {
+            display: none !important;
+        }
+        body {
+            top: 0 !important;
+        }
+        font {
+            background-color: transparent !important;
+            box-shadow: none !important;
+        }
+    </style>
     @vite(['resources/js/main.js'])
 
     @if(isset($globalSettings) && $globalSettings['footer_scripts'])

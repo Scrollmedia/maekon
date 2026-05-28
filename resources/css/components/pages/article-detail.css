@@ -68,6 +68,11 @@
 
 .article-detail__slider-wrapper {
     @apply relative;
+    @apply my-25;
+    @apply max-3xl:my-20;
+    @apply max-xl:mb-[--spacing(70/4)];
+    @apply max-lg:mb-[--spacing(60/4)];
+    @apply max-md:mt-[--spacing(60/4)] max-md:mb-[--spacing(50/4)];
 }
 
 .article-detail__slider {

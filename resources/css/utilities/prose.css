@@ -88,3 +88,13 @@
         }
     }
 }
+.article-detail__content{
+ 
+        .specs-info__container:last-child {
+            @apply mb-0;
+        }
+ 
+        .specs-info__container{
+            @apply px-0;
+        }
+}

@@ -47,7 +47,7 @@ class  GetOtherPagesService
             ->select(['id', 'title', 'excerpt',  'preview', 'created_at'])
             ->with(['urlRegistry' => function ($query) {
                 $query->select(['slug', 'model_id', 'model_type']);
-            }])->get();
+            }])->paginate(7);
     }
 
     public static function getHomeDirections() {

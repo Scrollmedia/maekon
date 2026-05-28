@@ -31,7 +31,7 @@
             <div class="about__item-main-content">
               <h3 class="about__item-main-title">{{ $metaItem['title'] }}</h3>
               <div class="about__item-main-description" data-line-reveal> {!! $metaItem['pod_title'] !!} </div>
-              <a href="#" class="btn btn--secondary  btn--md about__item-main-btn">
+              <a href="/about" class="btn btn--secondary  btn--md about__item-main-btn">
                 <div class="btn__label"> подробнее </div>
               </a>
             </div>

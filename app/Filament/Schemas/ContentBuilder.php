@@ -17,8 +17,7 @@ use App\Filament\Blocks\MainDirectionsBlock;
 use App\Filament\Blocks\MainNewsBlock;
 use App\Filament\Blocks\MainTextBlock;
 use App\Filament\Blocks\PartnersBlock;
- 
- 
+use App\Filament\Blocks\SliderSingleBlock;
 use App\Filament\Blocks\SliderSoloBlock;
 use App\Filament\Blocks\StandartsBlock;
 use App\Filament\Blocks\TextOnImage;
@@ -59,16 +58,14 @@ class ContentBuilder
                 MainTextBlock::make(),
 
                // FormBlock::make(),
-                AboutCompanyBlock::make(),
-
-                StandartsBlock::make(),
+ 
 
                 SliderTextBlock::make(),
 
                 SliderSoloBlock::make(),
-
-                AdvantagesBlock::make(),
-
+ 
+                SliderSingleBlock::make(),
+                
                 CharacterBlock::make(),
 
                 CharacterMainBlock::make(),
@@ -79,16 +76,24 @@ class ContentBuilder
 
                 VideoManyBlock::make(),
                 
+
                 TextOnImage::make(),
-
-                VakansiiBlock::make(),
-
-                VakansiiMainBlock::make(),
-
+ 
                 ExclamationBlock::make(),
+
+                
+                AdvantagesBlock::make(),
+
+                AboutCompanyBlock::make(),
+
+                StandartsBlock::make(),
 
                 PartnersBlock::make(),
 
+                
+                VakansiiBlock::make(),
+
+                VakansiiMainBlock::make(),
 
 
                 ...MainPageBlocks::getMainPageBlocks(),

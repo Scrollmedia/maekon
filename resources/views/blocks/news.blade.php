@@ -4,7 +4,7 @@
         <div class="section-header article__header">
           <h3 class="section-title">{{ $metaItem['title'] ?? '' }}</h3>
           <div class="section-header__actions">
-            <a href="#" class="btn btn--secondary  btn--md section-header__btn-all">
+            <a href="/blog" class="btn btn--secondary  btn--md section-header__btn-all">
               <div class="btn__label"> все новости </div>
             </a>
             <div class="slider-btn-list">
@@ -32,7 +32,7 @@
 
             <div class="swiper-slide">
               <article class="article-card" data-card-reveal-item>
-                <a class="article-card__link" href="#"></a>
+                <a class="article-card__link" href="{{ $item['slug'] }}"></a>
                 <div class="article-card__date">{{ date('d.m.Y', strtotime($item['created_at'])) }}</div>
                 <div class="article-card__image-wrapper">
                   <img class="article-card__image" src="{{  $item['preview']['url'] }}" alt="{{  $item['title'] }}">
@@ -48,7 +48,7 @@
           </div>
         </div>
         <div class="section-header__btn-all-wrapper">
-          <a href="#" class="btn btn--secondary  btn--md section-header__btn-all">
+          <a href="/blog" class="btn btn--secondary  btn--md section-header__btn-all">
             <div class="btn__label"> все новости </div>
           </a>
         </div>

@@ -24,7 +24,7 @@ class PageResolveService {
             $blocks = $handler->getBladeData($route->model);
  
             $modelClass = get_class($route->model); 
-    
+            
             $defaultTemplatesModels = [
                 'App\Models\Direction',
                 'App\Models\Brand',
