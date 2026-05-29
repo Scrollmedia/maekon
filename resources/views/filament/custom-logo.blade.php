@@ -1,0 +1,1 @@
+<img src="{{ asset('/storage/media/logo.svg') }}" alt="Логотип" class="h-10 mb-8 mx-auto">
